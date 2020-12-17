@@ -46,8 +46,6 @@ as_force_data_links.data.frame <-
     .data$source[is.na(.data$source)] <- "NA"
     .data$target[is.na(.data$target)] <- "NA"
 
-    # .data <- jsonlite::fromJSON(jsonlite::toJSON(.data, pretty = TRUE), simplifyDataFrame = FALSE)
-
     format_force_data_link_data_frame(.data)
   }
 
