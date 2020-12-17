@@ -39,10 +39,6 @@ as_force_data_links.data.frame <-
     names(.data)[source_idx] <- "source"
     names(.data)[target_idx] <- "target"
 
-    # convert "source" and "target" columns to character
-    .data$source <- as.character(.data$source)
-    .data$target <- as.character(.data$target)
-
     .data$source[is.na(.data$source)] <- "NA"
     .data$target[is.na(.data$target)] <- "NA"
 
