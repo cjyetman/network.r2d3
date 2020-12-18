@@ -16,7 +16,7 @@ RoxygenNote: 7.1.1
 Imports: 
     jsonlite (>= 0.9.6)
 Suggests: 
-    cover,
+    covr,
     devtools,
     pak,
     testthat (>= 3.0.0)
