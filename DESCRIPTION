@@ -19,7 +19,8 @@ Suggests:
     covr,
     devtools,
     pak,
+    pkgdown,
     testthat (>= 3.0.0)
 Config/testthat/edition: 3
-URL: https://github.com/cjyetman/network.r2d3
+URL: https://cjyetman.github.io/network.r2d3
 BugReports: https://github.com/cjyetman/network.r2d3/issues
