@@ -13,12 +13,12 @@ as_force_data_links.data.frame <-
   function(.data) {
     # must be a data frame
     if (!inherits(.data, "data.frame")) {
-      stop("the data passed to fix_force_links_data.frame must be a data frame")
+      stop("the data passed to as_force_data_links.data.frame must be a data frame")
     }
 
     # must have at least 2 columns
     if (ncol(.data) < 2) {
-      stop("the data frame passed to fix_force_links_data.frame must contain at least two columns")
+      stop("the data frame passed to as_force_data_links.data.frame must contain at least two columns")
     }
 
     # determine the "source" and "target" indices
