@@ -48,6 +48,10 @@ jobs:
         run: testthat::test_local()
         shell: Rscript {0}
 
+      - name: run covr::package_coverage()
+        run: covr::package_coverage()
+        shell: Rscript {0}
+
       - name: Upload check results
         if: failure()
         uses: actions/upload-artifact@main
