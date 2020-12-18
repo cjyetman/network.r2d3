@@ -3,9 +3,9 @@
 <!-- badges: start -->
 <!-- badges: end -->
 
-network.r2d3 makes interactive network charts in D3 leveraging [r2d3](https://github.com/rstudio/r2d3)
+network.r2d3 makes interactive network charts in D3 leveraging [r2d3](https://rstudio.github.io/r2d3/)
 
-It is intended to closely follow the functionality of [networkD3](https://github.com/christophergandrud/networkD3), but with the following benefits:
+It is intended to closely follow the functionality of [networkD3](https://christophergandrud.github.io/networkD3/), but with the following benefits:
 
 1. leverage the benefits of `r2d3` versus including a version of D3 internally
 2. use a better, more consistent API based on current standards in tidyverse
