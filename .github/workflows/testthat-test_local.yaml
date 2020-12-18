@@ -33,7 +33,7 @@ jobs:
           r-version: ${{ matrix.config.r }}
 
       - name: Install dependencies
-        run: install.packages(c("remotes", "testthat", "covr", "jsonlite"))
+        run: install.packages(c("remotes", "testthat", "covr", "devtools", "jsonlite"))
         shell: Rscript {0}
 
       - name: run testthat::test_local()
@@ -42,6 +42,10 @@ jobs:
 
       - name: run covr::package_coverage()
         run: covr::package_coverage()
+        shell: Rscript {0}
+
+      - name: run devtools::check(document = FALSE)
+        run: devtools::check(document = FALSE)
         shell: Rscript {0}
 
       - name: Upload check results
