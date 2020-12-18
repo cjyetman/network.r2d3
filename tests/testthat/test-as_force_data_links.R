@@ -40,10 +40,3 @@ test_that("as_force_data_links() handles a data frame with properly named column
   test_deafult_characteristics(result)
   expect_true(result[[1]] == 0:1 && result[[2]] == 2:3)
 })
-
-test_that("as_force_data_links() handles a data frame with properly named columns in a different order", {
-  example <- data.frame(target = 2:3, source = 0:1)
-  result <- as_force_data_links(example)
-  test_deafult_characteristics(result)
-  expect_true(result[[1]] == 0:1 && result[[2]] == 2:3)
-})
