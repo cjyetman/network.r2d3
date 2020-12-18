@@ -49,6 +49,24 @@ test_that("as_force_data_nodes() handles a data frame with a name and group colu
 })
 
 
+test_that("as_force_data_nodes() handles a data frame with no properly named id column", {
+  example <- data.frame(x = c("a", "b"), group = 1L)
+  result <- as_force_data_nodes(example)
+  test_deafult_characteristics(result)
+  expect_identical(result[[1L]], c("a", "b"))
+  expect_identical(result[[2L]], c("1", "1"))
+})
+
+
+test_that("as_force_data_nodes() handles a data frame with group column that is named by na argument", {
+  example <- data.frame(id = c("a", "b"), x = 1L)
+  result <- as_force_data_nodes(example, group = "x")
+  test_deafult_characteristics(result)
+  expect_identical(result[[1L]], c("a", "b"))
+  expect_identical(result[[2L]], c("1", "1"))
+})
+
+
 test_that("as_force_data_nodes() handles a list with only an id column", {
   example <- list(list(id = "a"), list(id = "b"))
   result <- as_force_data_nodes(example)
