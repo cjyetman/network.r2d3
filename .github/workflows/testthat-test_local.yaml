@@ -6,7 +6,7 @@ on:
     branches:
       - main
 
-name: run testthat::test_local()
+name: dev tests
 
 jobs:
   R-CMD-check:
@@ -63,15 +63,15 @@ jobs:
           sessioninfo::session_info(pkgs, include_base = TRUE)
         shell: Rscript {0}
 
-      - name: run testthat::test_local()
+      - name: Tests
         run: testthat::test_local()
         shell: Rscript {0}
 
-      - name: run covr::package_coverage()
+      - name: Coverage
         run: covr::package_coverage()
         shell: Rscript {0}
 
-      - name: run devtools::check(document = FALSE)
+      - name: R CMD check
         run: devtools::check(document = FALSE)
         shell: Rscript {0}
 
