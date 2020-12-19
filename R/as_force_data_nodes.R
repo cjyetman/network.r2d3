@@ -70,9 +70,9 @@ as_force_data_nodes.data.frame <-
 
 
 as_force_data_nodes.list <-
-  function(.data) {
+  function(.data, ...) {
     .data <- jsonlite::toJSON(.data, auto_unbox = TRUE)
     .data <- jsonlite::fromJSON(.data)
-    .data <- as_force_data_nodes.data.frame(.data)
+    .data <- as_force_data_nodes.data.frame(.data, ...)
     .data
   }
