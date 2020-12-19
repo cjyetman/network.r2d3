@@ -6,6 +6,22 @@ add_tbl_class <-
     .data
   }
 
+
+first_found_in <-
+  function(.x, domain, default = NA) {
+    .out <- domain[domain %in% .x][1]
+    if (is.na(.out)) { .out <- default }
+    .out
+  }
+
+
+list_to_dataframe <-
+  function(.data) {
+    .data <- jsonlite::toJSON(.data, auto_unbox = TRUE)
+    jsonlite::fromJSON(.data)
+  }
+
+
 format_force_data_link_data_frame <-
   function(.data) {
     stopifnot(inherits(x = .data, what = "data.frame"))
