@@ -48,15 +48,6 @@ as_force_data_links.data.frame <-
 
 as_force_data_links.list <-
   function(.data) {
-    list_json <- jsonlite::toJSON(.data, auto_unbox = TRUE)
-    list_df <- jsonlite::fromJSON(list_json)
-
-    # convert "source" and "target" columns to character
-    .data$source <- as.character(.data$source)
-    .data$target <- as.character(.data$target)
-
-    .data$source[is.na(.data$source)] <- "NA"
-    .data$target[is.na(.data$target)] <- "NA"
-
+    list_df <- list_to_dataframe(.data)
     format_force_data_link_data_frame(list_df)
   }
