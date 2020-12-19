@@ -30,9 +30,7 @@ as_force_data_nodes.data.frame <-
                   "label",
                   "vertex")
 
-    match_idxs <- match(id_names, tolower(names(.data)))
-    id_idx <- match_idxs[!is.na(match_idxs)][1]
-    if (is.na(id_idx)) { id_idx <- 1 }
+    id_idx <- index_of_first_found_in(tolower(names(.data)), domain = id_names, default = 1L)
 
     # set the name of the node id variable to "id"
     names(.data)[id_idx] <- "id"
@@ -42,8 +40,7 @@ as_force_data_nodes.data.frame <-
       group_idx <- which(names(.data) == optional_args$group)
     } else {
       group_names <- c("group", "groups")
-      match_idxs <- match(group_names, tolower(names(.data)))
-      group_idx <- match_idxs[!is.na(match_idxs)][1]
+      group_idx <- index_of_first_found_in(tolower(names(.data)), domain = group_names)
     }
 
     if (is.na(group_idx)) {

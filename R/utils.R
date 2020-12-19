@@ -15,6 +15,14 @@ first_found_in <-
   }
 
 
+index_of_first_found_in <-
+  function(.x, domain, default = NA_integer_) {
+    .out <- which(.x %in% domain)[1L]
+    if (is.na(.out)) { .out <- default }
+    .out
+  }
+
+
 list_to_dataframe <-
   function(.data) {
     .data <- jsonlite::toJSON(.data, auto_unbox = TRUE)

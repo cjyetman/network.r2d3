@@ -26,14 +26,10 @@ as_force_data_links.data.frame <-
     target_names <- c("target", "to", "targets", "stop", "end")
 
     # find a "source" column, otherwise assume it's the first column
-    match_idxs <- match(source_names, tolower(names(.data)))
-    source_idx <- match_idxs[!is.na(match_idxs)][1]
-    if (is.na(source_idx)) { source_idx <- 1 }
+    source_idx <- index_of_first_found_in(tolower(names(.data)), domain = source_names, default = 1L)
 
     # find a "target" column, otherwise assume it's the second column
-    match_idxs <- match(target_names, tolower(names(.data)))
-    target_idx <- match_idxs[!is.na(match_idxs)][1]
-    if (is.na(target_idx)) { target_idx <- 2 }
+    target_idx <- index_of_first_found_in(tolower(names(.data)), domain = target_names, default = 2L)
 
     # set proper names for "source" and "target" columns
     names(.data)[source_idx] <- "source"
