@@ -3,21 +3,21 @@ test_deafult_characteristics <-
     expect_type(.data, "list")
     expect_equal(length(.data), 2L)
 
-    nodes <- .data[[1]]
+    nodes <- .data[[1L]]
     expect_s3_class(nodes, "data.frame")
     expect_gte(ncol(nodes), 2L)
     expect_identical(c("id", "group"), names(nodes)[1:2])
     expect_true(all(vapply(nodes, is.atomic, logical(1))))
-    expect_type(nodes[[1]], "character")
+    expect_type(nodes[[1L]], "character")
 
-    links <- .data[[2]]
+    links <- .data[[2L]]
     expect_s3_class(links, "data.frame")
     expect_s3_class(links, "tbl")
     expect_gte(ncol(links), 2L)
     expect_identical(c("source", "target"), names(links)[1:2])
     expect_true(all(vapply(links, is.atomic, logical(1))))
-    expect_type(links[[1]], "character")
-    expect_type(links[[2]], "character")
+    expect_type(links[[1L]], "character")
+    expect_type(links[[2L]], "character")
   }
 
 
