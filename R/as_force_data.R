@@ -93,7 +93,7 @@ as_force_data.dendrogram <-
 as_force_data.list <-
   function(.data, ...) {
     if (length(.data) == 1L) {
-      return(as_force_data(.data[[1]]))
+      return(as_force_data(.data[[1L]]))
     }
 
     if (length(.data) == 2L) {
