@@ -59,7 +59,7 @@ as_force_data.hclust <-
         parent <- which(i == .data$merge)
         parent <- ifelse(parent > nrow(.data$merge),
                          parent - nrow(.data$merge), parent)
-        as.integer(ifelse(length(parent) == 0, NA_integer_, parent))
+        as.integer(ifelse(length(parent) == 0L, NA_integer_, parent))
       })
 
     leaveparents <-
@@ -67,14 +67,14 @@ as_force_data.hclust <-
         parent <- which(i * -1 == .data$merge)
         parent <- ifelse(parent > nrow(.data$merge), parent -
                            nrow(.data$merge), parent)
-        as.integer(ifelse(length(parent) == 0, NA, parent))
+        as.integer(ifelse(length(parent) == 0L, NA, parent))
       })
 
     .data <-
       data.frame(
         source = as.character(c(clustparents, leaveparents)),
         target = c(1:length(.data$height), .data$labels),
-        height = c(.data$height, rep(0, length(.data$labels)))
+        height = c(.data$height, rep(0L, length(.data$labels)))
       )
 
     return(as_force_data(.data))
@@ -92,11 +92,11 @@ as_force_data.dendrogram <-
 
 as_force_data.list <-
   function(.data, ...) {
-    if (length(.data) == 1) {
+    if (length(.data) == 1L) {
       return(as_force_data(.data[[1]]))
     }
 
-    if (length(.data) == 2) {
+    if (length(.data) == 2L) {
       # find the 'links' data, otherwise assume it's the first element
       links_names <- c('links', 'edges', 'link', 'edge')
       links_idx <- first_found_in(tolower(names(.data)), links_names, default = 1L)

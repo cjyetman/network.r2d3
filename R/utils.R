@@ -9,7 +9,7 @@ add_tbl_class <-
 
 first_found_in <-
   function(.x, domain, default = NA) {
-    .out <- domain[domain %in% .x][1]
+    .out <- domain[domain %in% .x][1L]
     if (is.na(.out)) { .out <- default }
     .out
   }

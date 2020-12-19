@@ -44,8 +44,8 @@ as_force_data_nodes.data.frame <-
     }
 
     if (is.na(group_idx)) {
-      group_idx <- ncol(.data) + 1
-      .data$group <- 1
+      group_idx <- ncol(.data) + 1L
+      .data$group <- 1L
     } else {
       names(.data)[group_idx] <- "group"
     }
