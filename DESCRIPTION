@@ -18,8 +18,10 @@ Imports:
 Suggests: 
     covr,
     devtools,
+    igraph,
     pak,
     pkgdown,
+    tidygraph,
     testthat (>= 3.0.0)
 Config/testthat/edition: 3
 URL: https://cjyetman.github.io/network.r2d3
