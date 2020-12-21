@@ -48,7 +48,6 @@
 #'
 #' @importFrom data.tree ToDataFrameNetwork
 #' @importFrom igraph as_data_frame
-#' @importFrom stats na.exclude
 #' @importFrom stats setNames
 #'
 #' @md
@@ -277,8 +276,6 @@ as_tree_data.igraph <- function(data, root = 'root', ...) {
 #' @param root root name.
 #' @param ... arguments to pass to methods.
 #'
-#' @importFrom stats na.omit
-#'
 #' @export
 
 as_tree_data.data.frame <- function(data,
@@ -292,7 +289,7 @@ as_tree_data.data.frame <- function(data,
     names(data)[namestoswitch] <- names(cols)[match(names(data)[namestoswitch],
                                                     cols)]
 
-    if (nrow(na.omit(data[-1, ])) < nrow(data[-1, ])) # assumes root is in first row
+    if (any(is.na(data[-1, ]))) # assumes root is in first row
       warning("Missing values found in data. May cause graph to fail.",
               call. = FALSE)
 

@@ -3,7 +3,5 @@
 importFrom(data.tree,ToDataFrameNetwork)
 importFrom(igraph,as_data_frame)
 importFrom("r2d3", "r2d3")
-importFrom(stats,na.exclude)
-importFrom(stats,na.omit)
 importFrom(stats,setNames)
 importFrom("utils", "installed.packages")
