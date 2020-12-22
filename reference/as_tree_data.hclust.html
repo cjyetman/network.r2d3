@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Function reference • network.r2d3</title>
+<title>Convert hclust objects to treenetdf — as_tree_data.hclust • network.r2d3</title>
 
 
 <!-- jquery -->
@@ -39,7 +39,8 @@
 
 
 
-<meta property="og:title" content="Function reference" />
+<meta property="og:title" content="Convert hclust objects to treenetdf — as_tree_data.hclust" />
+<meta property="og:description" content="Convert hclust objects to treenetdf" />
 
 
 
@@ -58,7 +59,7 @@
   </head>
 
   <body data-spy="scroll" data-target="#toc">
-    <div class="container template-reference-index">
+    <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -105,84 +106,36 @@
       </header>
 
 <div class="row">
-  <div class="contents col-md-9">
+  <div class="col-md-9 contents">
     <div class="page-header">
-      <h1>Reference</h1>
+    <h1>Convert hclust objects to <code>treenetdf</code></h1>
+    <small class="dont-index">Source: <a href='https://github.com/cjyetman/network.r2d3/blob/master/R/as_tree_data.R'><code>R/as_tree_data.R</code></a></small>
+    <div class="hidden name"><code>as_tree_data.hclust.Rd</code></div>
     </div>
 
-    <table class="ref-index">
+    <div class="ref-description">
+    <p>Convert hclust objects to <code>treenetdf</code></p>
+    </div>
 
-    <colgroup>
-      
-      <col class="alias" />
-      <col class="title" />
-    </colgroup>
+    <pre class="usage"><span class='co'># S3 method for hclust</span>
+<span class='fu'><a href='as_tree_data.html'>as_tree_data</a></span><span class='op'>(</span><span class='va'>data</span>, <span class='va'>...</span><span class='op'>)</span></pre>
 
-    <tbody>
-      <tr>
-        <th colspan="2">
-          <h2 id="section-all-functions" class="hasAnchor"><a href="#section-all-functions" class="anchor"></a>All functions</h2>
-          <p class="section-desc"></p>
-        </th>
-      </tr>
-      
-      
-    </tbody><tbody>
-      
-      
-      <tr>
-        
-        <td>
-          <p><code><a href="as_tree_data.Node.html">as_tree_data(<i>&lt;Node&gt;</i>)</a></code> </p>
-        </td>
-        <td><p>data.tree to <code>treenetdf</code></p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="as_tree_data.html">as_tree_data()</a></code> </p>
-        </td>
-        <td><p>Convert one of numerous data types to treeNetwork's 'native' treenetdf form</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="as_tree_data.data.frame.html">as_tree_data(<i>&lt;data.frame&gt;</i>)</a></code> </p>
-        </td>
-        <td><p>Convert a data.frame to a <code>treenetdf</code></p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="as_tree_data.hclust.html">as_tree_data(<i>&lt;hclust&gt;</i>)</a></code> </p>
-        </td>
-        <td><p>Convert hclust objects to <code>treenetdf</code></p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="as_tree_data.igraph.html">as_tree_data(<i>&lt;igraph&gt;</i>)</a></code> </p>
-        </td>
-        <td><p>Convert igraph tree to <code>treenetdf</code></p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="as_tree_data.list.html">as_tree_data(<i>&lt;list&gt;</i>)</a></code> </p>
-        </td>
-        <td><p>Convert a nested list to <code>treenetdf</code></p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="as_tree_data.phylo.html">as_tree_data(<i>&lt;phylo&gt;</i>)</a></code> </p>
-        </td>
-        <td><p>Phylo tree to <code>treenetdf</code></p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="as_tree_data.tbl_graph.html">as_tree_data(<i>&lt;tbl_graph&gt;</i>)</a></code> </p>
-        </td>
-        <td><p>tbl_graph_to_treenetdf</p></td>
-      </tr>
-    </tbody>
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>data</th>
+      <td><p>a tree network description in one of numerous forms (see
+details).</p></td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td><p>arguments to pass to methods.</p></td>
+    </tr>
     </table>
-  </div>
 
+
+  </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
       <h2 data-toc-skip>Contents</h2>
