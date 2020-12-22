@@ -43,18 +43,13 @@
 #'  # Convert data
 #'  as_tree_data(links, cols = c(nodeId = 'source', parentId = 'target'))
 #'
-#'  # Graph (calls as_tree_data internally)
-#'  treeNetwork(links, cols = c(nodeId = 'source', parentId = 'target'))
-#'
-#' @importFrom stats setNames
-#'
 #' @md
 #' @export
 #'
-
 as_tree_data <- function(data = NULL, ...) {
   UseMethod("as_tree_data")
 }
+
 
 #########################################################################
 #' Convert hclust objects to \code{treenetdf}
@@ -95,6 +90,7 @@ as_tree_data.hclust <- function(data, ...) {
   return(df)
 }
 
+
 #########################################################################
 #' Convert a nested list to \code{treenetdf}
 #'
@@ -106,6 +102,7 @@ as_tree_data.hclust <- function(data, ...) {
 #' @param ... arguments to pass to methods.
 #'
 #' @export
+
 as_tree_data.list <- function(data, children_name = 'children',
                               node_name = 'name', ...) {
   makelistofdfs <- function(data) {
@@ -162,6 +159,7 @@ as_tree_data.list <- function(data, children_name = 'children',
 #' @inheritParams as_tree_data
 #' @param ... arguments to pass to methods.
 #' @export
+
 as_tree_data.Node <-  function(data, ...) {
   if (!requireNamespace("data.tree", quietly = TRUE)) {
     stop('The "data.tree" package is needed for as_tree_data.Node() to work', call. = FALSE)
@@ -221,6 +219,7 @@ as_tree_data.phylo <- function(data, ...) {
   return(df)
 }
 
+
 #########################################################################
 #' tbl_graph_to_treenetdf
 #'
@@ -233,6 +232,7 @@ as_tree_data.tbl_graph <- function(data, ...) {
   as_tree_data.igraph(data)
 }
 
+
 #########################################################################
 #' Convert igraph tree to \code{treenetdf}
 #'
@@ -241,6 +241,7 @@ as_tree_data.tbl_graph <- function(data, ...) {
 #' root node
 #' @param ... arguments to pass to methods.
 #' @export
+
 as_tree_data.igraph <- function(data, root = 'root', ...) {
   if (!requireNamespace("igraph", quietly = TRUE)) {
     stop('The "igraph," package is needed for as_tree_data.igraph() to work', call. = FALSE)
@@ -251,9 +252,9 @@ as_tree_data.igraph <- function(data, root = 'root', ...) {
   if (length(rootId) > 1) {
     rootdf <- Reduce(function(x, y) {
       rbind(x, c(nodeId = y, parentId = root,
-                 setNames(rep(NA, length(names(df)) - 2), names(df)[-(1:2)])))
+                 stats::setNames(rep(NA, length(names(df)) - 2), names(df)[-(1:2)])))
     }, rootId, c(nodeId = root, parentId = NA,
-                 setNames(rep(NA, length(names(df)) - 2),
+                 stats::setNames(rep(NA, length(names(df)) - 2),
                           names(df)[-(1:2)])))
     df <- rbind(rootdf, df, stringsAsFactors = F, make.row.names = FALSE)
     df$name <- df$nodeId
@@ -288,7 +289,7 @@ as_tree_data.igraph <- function(data, root = 'root', ...) {
 #' @export
 
 as_tree_data.data.frame <- function(data,
-                                    cols = setNames(names(data), names(data)),
+                                    cols = stats::setNames(names(data), names(data)),
                                     df_type = 'treenetdf', subset = names(data),
                                     root, ...) {
   if (df_type == 'treenetdf') {
@@ -328,12 +329,12 @@ as_tree_data.data.frame <- function(data,
     }
 
     nodelist <-
-      c(setNames(root, root),
+      c(stats::setNames(root, root),
         unlist(
           sapply(2:ncol(data), function(i) {
             subdf <- unique(data[, 1:i])
             sapply(1:nrow(subdf), function(i)
-              setNames(paste(subdf[i, ], collapse = '::'),
+              stats::setNames(paste(subdf[i, ], collapse = '::'),
                        rev(subdf[i, ])[1]))
           })
         )
