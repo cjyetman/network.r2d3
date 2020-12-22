@@ -1,7 +1,8 @@
 add_tbl_class <-
   function(.data) {
-    if (inherits(x = .data, what = "data.frame")) {
-      class(.data) <- c("tbl", class(.data))
+    if (requireNamespace("tibble", quietly = TRUE) &&
+        inherits(x = .data, what = "data.frame")) {
+      return(tibble::as_tibble(df))
     }
     .data
   }
