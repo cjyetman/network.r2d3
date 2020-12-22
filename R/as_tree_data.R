@@ -84,7 +84,7 @@ as_tree_data.hclust <- function(data, ...) {
       height = c(data$height, rep(0, length(data$labels)))
     )
 
-  if (!requireNamespace("tibble", quietly = TRUE)) {
+  if (requireNamespace("tibble", quietly = TRUE)) {
     return(tibble::as_tibble(df))
   }
   return(df)
@@ -146,7 +146,7 @@ as_tree_data.list <- function(data, children_name = 'children',
   df <- data.frame(matrix, stringsAsFactors = F)
   df$nodeId[is.na(df$nodeId)] <- df[[node_name]][is.na(df$nodeId)]
 
-  if (!requireNamespace("tibble", quietly = TRUE)) {
+  if (requireNamespace("tibble", quietly = TRUE)) {
     return(tibble::as_tibble(df))
   }
   return(df)
@@ -171,7 +171,7 @@ as_tree_data.Node <-  function(data, ...) {
   df <- rbind(c(nodeId = rootId, parentId = NA, rep(NA, ncol(df) - 2)), df)
   df$name <- df$nodeId
 
-  if (!requireNamespace("tibble", quietly = TRUE)) {
+  if (requireNamespace("tibble", quietly = TRUE)) {
     return(tibble::as_tibble(df))
   }
   return(df)
@@ -213,7 +213,7 @@ as_tree_data.phylo <- function(data, ...) {
   df <- rbind(c(nodeId = rootId, parentId = NA, name = NA, edge.length = 0,
                 depth = 0, height = max(df$depth)), df)
 
-  if (!requireNamespace("tibble", quietly = TRUE)) {
+  if (requireNamespace("tibble", quietly = TRUE)) {
     return(tibble::as_tibble(df))
   }
   return(df)
@@ -265,7 +265,7 @@ as_tree_data.igraph <- function(data, root = 'root', ...) {
     df$name <- df$nodeId
   }
 
-  if (!requireNamespace("tibble", quietly = TRUE)) {
+  if (requireNamespace("tibble", quietly = TRUE)) {
     return(tibble::as_tibble(df))
   }
   return(df)
@@ -303,7 +303,7 @@ as_tree_data.data.frame <- function(data,
       warning("Missing values found in data. May cause graph to fail.",
               call. = FALSE)
 
-    if (!requireNamespace("tibble", quietly = TRUE)) {
+    if (requireNamespace("tibble", quietly = TRUE)) {
       return(tibble::as_tibble(data))
     }
     return(data)
@@ -353,7 +353,7 @@ as_tree_data.data.frame <- function(data,
         )
       )
 
-    if (!requireNamespace("tibble", quietly = TRUE)) {
+    if (requireNamespace("tibble", quietly = TRUE)) {
       return(tibble::tibble(nodeId = nodeId, parentId = parentId, name = name))
     }
     return(data.frame(nodeId = nodeId, parentId = parentId, name = name,
