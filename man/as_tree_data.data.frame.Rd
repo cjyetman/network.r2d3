@@ -6,7 +6,7 @@
 \usage{
 \method{as_tree_data}{data.frame}(
   data,
-  cols = stats::setNames(names(data), names(data)),
+  cols = NULL,
   df_type = "treenetdf",
   subset = names(data),
   root,

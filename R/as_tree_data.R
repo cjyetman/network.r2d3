@@ -289,15 +289,31 @@ as_tree_data.igraph <- function(data, root = 'root', ...) {
 #' @export
 
 as_tree_data.data.frame <- function(data,
-                                    cols = stats::setNames(names(data), names(data)),
+                                    cols = NULL,
                                     df_type = 'treenetdf', subset = names(data),
                                     root, ...) {
   if (df_type == 'treenetdf') {
-    # convert custom column names to native names
-    cols <- cols[cols %in% names(data)]  # only use custom names that exist in data
-    namestoswitch <- names(data) %in% cols
-    names(data)[namestoswitch] <- names(cols)[match(names(data)[namestoswitch],
-                                                    cols)]
+    if (!is.null(cols)) {
+      stopifnot(all(cols %in% names(data)))
+
+      nodeId_idx <- which(names(data) == cols[["nodeId"]])
+      names(data)[nodeId_idx] <- "nodeId"
+      data <- data[c(nodeId_idx, setdiff(1L:length(data), nodeId_idx))]
+
+      parentId_idx <- which(names(data) == cols[["parentId"]])
+      names(data)[parentId_idx] <- "parentId"
+      data <- data[c(1, parentId_idx, setdiff(2L:length(data), parentId_idx))]
+    } else {
+      nodeId_names <- c("nodeId", "target")
+      nodeId_idx <- index_of_first_found_in(names(data), domain = nodeId_names, default = 1L)
+      names(data)[nodeId_idx] <- "nodeId"
+      data <- data[c(nodeId_idx, setdiff(1L:length(data), nodeId_idx))]
+
+      parentId_names <- c("parentId", "source")
+      parentId_idx <- index_of_first_found_in(names(data), domain = parentId_names, default = 2L)
+      names(data)[parentId_idx] <- "parentId"
+      data <- data[c(1, parentId_idx, setdiff(2L:length(data), parentId_idx))]
+    }
 
     if (any(is.na(data[-1, ]))) # assumes root is in first row
       warning("Missing values found in data. May cause graph to fail.",
