@@ -18,6 +18,7 @@ Imports:
     r2d3
 Suggests: 
     ape,
+    chromote,
     covr,
     data.tree,
     devtools,
@@ -26,7 +27,11 @@ Suggests:
     pkgdown,
     tibble,
     tidygraph,
+    webshot2,
     testthat (>= 3.0.0)
 Config/testthat/edition: 3
+Remotes:  
+    rstudio/chromote,
+    rstudio/webshot2
 URL: https://cjyetman.github.io/network.r2d3
 BugReports: https://github.com/cjyetman/network.r2d3/issues
