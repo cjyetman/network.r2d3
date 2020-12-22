@@ -46,8 +46,6 @@
 #'  # Graph (calls as_tree_data internally)
 #'  treeNetwork(links, cols = c(nodeId = 'source', parentId = 'target'))
 #'
-#' @importFrom data.tree ToDataFrameNetwork
-#' @importFrom igraph as_data_frame
 #' @importFrom stats setNames
 #'
 #' @md
@@ -163,11 +161,11 @@ as_tree_data.list <- function(data, children_name = 'children',
 #'
 #' @inheritParams as_tree_data
 #' @param ... arguments to pass to methods.
-#'
-# @importFrom data.tree ToDataFrameNetwork
-#
 #' @export
 as_tree_data.Node <-  function(data, ...) {
+  if (!requireNamespace("data.tree", quietly = TRUE)) {
+    stop('The "data.tree" package is needed for as_tree_data.Node() to work', call. = FALSE)
+  }
   df <- do.call(data.tree::ToDataFrameNetwork,
                 c(data, direction = 'descend', data$fieldsAll))
   names(df)[1:2] <- c('nodeId', 'parentId')
@@ -180,6 +178,7 @@ as_tree_data.Node <-  function(data, ...) {
   }
   return(df)
 }
+
 
 #########################################################################
 #' Phylo tree to \code{treenetdf}
@@ -241,11 +240,11 @@ as_tree_data.tbl_graph <- function(data, ...) {
 #' @param root character specifying the string that should be used to name the
 #' root node
 #' @param ... arguments to pass to methods.
-#'
-#' @importFrom igraph as_data_frame
-#'
 #' @export
 as_tree_data.igraph <- function(data, root = 'root', ...) {
+  if (!requireNamespace("igraph", quietly = TRUE)) {
+    stop('The "igraph," package is needed for as_tree_data.igraph() to work', call. = FALSE)
+  }
   df <- igraph::as_data_frame(data)
   names(df)[1:2] <- c('nodeId', 'parentId')
   rootId <- unique(df$parentId[! df$parentId %in% df$nodeId])
