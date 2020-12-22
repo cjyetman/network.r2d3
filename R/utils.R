@@ -2,7 +2,7 @@ add_tbl_class <-
   function(.data) {
     if (requireNamespace("tibble", quietly = TRUE) &&
         inherits(x = .data, what = "data.frame")) {
-      return(tibble::as_tibble(df))
+      return(tibble::as_tibble(.data))
     }
     .data
   }
