@@ -165,7 +165,7 @@ as_tree_data.Node <-  function(data, ...) {
     stop('The "data.tree" package is needed for as_tree_data.Node() to work', call. = FALSE)
   }
   df <- do.call(data.tree::ToDataFrameNetwork,
-                c(data, direction = 'descend', data$fieldsAll))
+                c(data, direction = 'descend', data$attributesAll))
   names(df)[1:2] <- c('nodeId', 'parentId')
   rootId <- unique(df$parentId[! df$parentId %in% df$nodeId])
   df <- rbind(c(nodeId = rootId, parentId = NA, rep(NA, ncol(df) - 2)), df)
