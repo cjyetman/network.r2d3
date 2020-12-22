@@ -17,6 +17,7 @@ Imports:
     jsonlite (>= 0.9.6),
     r2d3
 Suggests: 
+    ape,
     covr,
     data.tree,
     devtools,
