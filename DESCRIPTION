@@ -8,6 +8,8 @@ Authors@R:
            email = "cj@cjyetman.com",
            comment = c(ORCID = "0000-0001-5099-9500"))
 Description: Makes interactive network graphs using r2d3.
+URL: https://cjyetman.github.io/network.r2d3
+BugReports: https://github.com/cjyetman/network.r2d3/issues
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
@@ -25,13 +27,11 @@ Suggests:
     igraph,
     pak,
     pkgdown,
+    testthat (>= 3.0.0),
     tibble,
     tidygraph,
-    webshot2,
-    testthat (>= 3.0.0)
+    webshot2
 Config/testthat/edition: 3
 Remotes:  
     rstudio/chromote,
     rstudio/webshot2
-URL: https://cjyetman.github.io/network.r2d3
-BugReports: https://github.com/cjyetman/network.r2d3/issues
