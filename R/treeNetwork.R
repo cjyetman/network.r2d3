@@ -1,3 +1,25 @@
+#' Create an interactive tree network plot in an htmlwidget
+#'
+#' @param data a tree network description in one of numerous forms (see
+#' details)
+#' @param width width of exported htmlwidget in pixels (single integer value; default == NULL)
+#' @param height height of exported htmlwidget in pixels (single integer value; default == NULL)
+#' @param treeType type of tree; one of "tidy" or "cluster" (see details) (default == "tidy")
+#' @param direction direction toward which the tree grows; one of "right", "left", "down", or "up" (see details) (default == "right")
+#' @param linkType type on link shape; one of "diagonal" or "elbow" (see details) (default == "diagonal")
+#' @param ... other options (see details)
+#'
+#' @description
+#' The `treeNetwork` function creates an interactive tree network plot in an htmlwidget
+#'
+#' @examples
+#' treedf <- data.frame(nodeId = LETTERS[1:7],
+#'                      parentId = c("", "A", "A", "B", "B", "C", "C"),
+#'                      name = LETTERS[1:7],
+#'                      stringsAsFactors = FALSE)
+#' treeNetwork(treedf)
+#'
+#' @md
 #' @export
 treeNetwork <- function(data, width = NULL, height = NULL, treeType = 'tidy',
                         direction = 'right', linkType = 'diagonal', ...) {
