@@ -10,18 +10,18 @@
 #' @param ... other options (see details)
 #'
 #' @description
-#' The `treeNetwork` function creates an interactive tree network plot in an htmlwidget
+#' The `tree_network` function creates an interactive tree network plot in an htmlwidget
 #'
 #' @examples
 #' treedf <- data.frame(nodeId = LETTERS[1:7],
 #'                      parentId = c("", "A", "A", "B", "B", "C", "C"),
 #'                      name = LETTERS[1:7],
 #'                      stringsAsFactors = FALSE)
-#' treeNetwork(treedf)
+#' tree_network(treedf)
 #'
 #' @md
 #' @export
-treeNetwork <- function(data, width = NULL, height = NULL, treeType = 'tidy',
+tree_network <- function(data, width = NULL, height = NULL, treeType = 'tidy',
                         direction = 'right', linkType = 'diagonal', ...) {
   data <- as_tree_data(data)
 
@@ -68,7 +68,7 @@ treeNetwork <- function(data, width = NULL, height = NULL, treeType = 'tidy',
   r2d3::r2d3(
     data = data,
     options = options,
-    script = system.file("d3/treeNetwork.js", package = "network.r2d3"),
+    script = system.file("d3/tree_network.js", package = "network.r2d3"),
     d3_version = 4,
     width = width,
     height = height

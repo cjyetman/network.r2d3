@@ -1,11 +1,11 @@
-#' Convert one of numerous data types to treeNetwork's 'native' treenetdf form
+#' Convert one of numerous data types to tree_network's 'native' treenetdf form
 #'
 #' @param data a tree network description in one of numerous forms (see
 #' details).
 #' @param ... other arguments that will be passed on to as_tree_data
 #'
 #' @description
-#' The `treeNetwork` function uses a 'native' data format that consists of a data
+#' The `tree_network` function uses a 'native' data format that consists of a data
 #' frame with minimally 2 vectors/columns, one named `'nodeId'` and one named
 #' `'parentId'`. Other columns in the data frame are also passed on to the
 #' JavaScript code and attached to the elements in the D3 visualization so that

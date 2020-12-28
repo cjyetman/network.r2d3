@@ -2,7 +2,7 @@
 % Please edit documentation in R/as_tree_data.R
 \name{as_tree_data}
 \alias{as_tree_data}
-\title{Convert one of numerous data types to treeNetwork's 'native' treenetdf form}
+\title{Convert one of numerous data types to tree_network's 'native' treenetdf form}
 \usage{
 as_tree_data(data = NULL, ...)
 }
@@ -13,7 +13,7 @@ details).}
 \item{...}{other arguments that will be passed on to as_tree_data}
 }
 \description{
-The \code{treeNetwork} function uses a 'native' data format that consists of a data
+The \code{tree_network} function uses a 'native' data format that consists of a data
 frame with minimally 2 vectors/columns, one named \code{'nodeId'} and one named
 \code{'parentId'}. Other columns in the data frame are also passed on to the
 JavaScript code and attached to the elements in the D3 visualization so that
