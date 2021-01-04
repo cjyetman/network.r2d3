@@ -27,11 +27,13 @@ Suggests:
     igraph,
     pak,
     pkgdown,
+    preferably,
     testthat (>= 3.0.0),
     tibble,
     tidygraph,
     webshot2
 Config/testthat/edition: 3
-Remotes:  
+Remotes: 
     rstudio/chromote,
+    amirmasoudabdol/preferably,
     rstudio/webshot2
