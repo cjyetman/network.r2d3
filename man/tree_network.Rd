@@ -18,9 +18,7 @@ tree_network(
 \item{data}{a tree network description in one of numerous forms (see
 details)}
 
-\item{width}{width of exported htmlwidget in pixels (single integer value; default == NULL)}
-
-\item{height}{height of exported htmlwidget in pixels (single integer value; default == NULL)}
+\item{width, height}{width and height of exported htmlwidget in pixels (single integer value; default == NULL)}
 
 \item{treeType}{type of tree; one of "tidy" or "cluster" (see details) (default == "tidy")}
 

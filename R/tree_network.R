@@ -2,8 +2,7 @@
 #'
 #' @param data a tree network description in one of numerous forms (see
 #' details)
-#' @param width width of exported htmlwidget in pixels (single integer value; default == NULL)
-#' @param height height of exported htmlwidget in pixels (single integer value; default == NULL)
+#' @param width,height width and height of exported htmlwidget in pixels (single integer value; default == NULL)
 #' @param treeType type of tree; one of "tidy" or "cluster" (see details) (default == "tidy")
 #' @param direction direction toward which the tree grows; one of "right", "left", "down", or "up" (see details) (default == "right")
 #' @param linkType type on link shape; one of "diagonal" or "elbow" (see details) (default == "diagonal")
