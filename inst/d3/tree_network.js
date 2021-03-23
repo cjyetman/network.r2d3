@@ -1,4 +1,4 @@
-// !preview r2d3 reps <- 7, data = jsonlite::toJSON(data.frame(nodeId = LETTERS[1:7], parentId = c("", "A", "A", "B","B", "C", "C"), name = LETTERS[1:7], nodeSize = rep(8, reps), nodeStroke = rep("steelblue", reps), nodeColor = rep("green", reps), nodeSymbol = rep("circle", reps), nodeFont = rep("sans-serif", reps), nodeFontSize = rep(18, reps), textColor = rep("grey", reps), textOpacity =rep(1, reps), linkColor = rep("grey", reps), linkWidth = rep("1.5px", reps), stringsAsFactors = FALSE), auto_unbox = TRUE), d3_version = 4, options = list(treeType = 'tidy', direction = 'right', linkType = 'diagonal')
+// !preview r2d3 data = jsonlite::toJSON(data.frame(nodeId = LETTERS[1:7], parentId = c("", "A", "A", "B","B", "C", "C"), name = LETTERS[1:7], nodeSize = 8, nodeStroke = "steelblue", nodeColor = "green", nodeSymbol = "circle", nodeFont = "sans-serif", nodeFontSize = 18, textColor = "grey", textOpacity = 1, linkColor = "grey", linkWidth = "1.5px", stringsAsFactors = FALSE), auto_unbox = TRUE), d3_version = 4, options = list(treeType = 'tidy', direction = 'right', linkType = 'diagonal')
 
 
 
