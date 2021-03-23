@@ -33,7 +33,7 @@ test_that("tree_network() svg output", {
                         name = LETTERS[1L:4L])
   d3 <- tree_network(example)
 
-  expect_true(test_against_baseline_svg(d3, "example-data/basic_tree_svg.txt"))
+  expect_true(test_against_baseline_svg(d3, testthat::test_path("example-data/basic_tree_svg.txt")))
 })
 
 
