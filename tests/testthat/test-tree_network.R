@@ -5,7 +5,7 @@ test_against_baseline_svg <-
 
     b <- chromote::ChromoteSession$new()
     b$Page$navigate(paste0("file://", normalizePath(tmp_html, winslash = "/")))
-    Sys.sleep(1.0)
+    Sys.sleep(1.5)
 
     eval <-
       paste0(
