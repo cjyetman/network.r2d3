@@ -5,14 +5,17 @@ test_against_baseline_svg <-
 
     b <- chromote::ChromoteSession$new()
     b$Page$navigate(paste0("file://", normalizePath(tmp_html, winslash = "/")))
+    Sys.sleep(1.0)
+
     eval <-
       paste0(
         "var el = document.getElementById('htmlwidget_container').firstElementChild;\n",
         "el.shadowRoot === null ? el.innerHTML : el.shadowRoot.innerHTML;"
       )
-    Sys.sleep(1.0)
     svg <- b$Runtime$evaluate(eval)$result$value
+
     b$close()
+
     svg_check <- readLines(example)
     identical(svg, svg_check)
   }
