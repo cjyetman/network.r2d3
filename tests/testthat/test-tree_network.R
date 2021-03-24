@@ -10,7 +10,7 @@ test_against_baseline_svg <-
         "var el = document.getElementById('htmlwidget_container').firstElementChild;\n",
         "el.shadowRoot === null ? el.innerHTML : el.shadowRoot.innerHTML;"
       )
-    Sys.sleep(1.5)
+    Sys.sleep(1.0)
     svg <- b$Runtime$evaluate(eval)$result$value
     b$close()
     svg_check <- readLines(example)
