@@ -1,26 +1,3 @@
-test_against_baseline_svg <-
-  function(widget, example) {
-    tmp_html <- tempfile(fileext = ".html")
-    r2d3::save_d3_html(widget, file = tmp_html, background = "white")
-
-    b <- chromote::ChromoteSession$new()
-    b$Page$navigate(paste0("file://", normalizePath(tmp_html, winslash = "/")))
-    Sys.sleep(1.5)
-
-    eval <-
-      paste0(
-        "var el = document.getElementById('htmlwidget_container').firstElementChild;\n",
-        "el.shadowRoot === null ? el.innerHTML : el.shadowRoot.innerHTML;"
-      )
-    svg <- b$Runtime$evaluate(eval)$result$value
-
-    b$close()
-
-    svg_check <- readLines(example)
-    identical(svg, svg_check)
-  }
-
-
 test_default_characteristics <-
   function(data) {
     script_line <- grep("^[/][*] R2D3 Source File: ", strsplit(data$x$script, "\n")[[1]], value = TRUE)
@@ -35,8 +12,8 @@ test_that("tree_network() svg output", {
                         target = 1L:4L,
                         name = LETTERS[1L:4L])
   d3 <- tree_network(example)
-
-  expect_true(test_against_baseline_svg(d3, testthat::test_path("example-data/basic_tree_svg.txt")))
+  svg_path <- save_as_svg(d3, filepath = tempfile(), delay = 1)
+  expect_snapshot_file(svg_path, "test_tree.svg")
 })
 
 
