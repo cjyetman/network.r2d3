@@ -22,10 +22,10 @@ test_against_baseline_svg <-
 
 
 test_default_characteristics <-
-  function(.data) {
-    script_line <- grep("^[/][*] R2D3 Source File: ", strsplit(.data$x$script, "\n")[[1]], value = TRUE)
-    expect_s3_class(.data, "r2d3")
-    expect_s3_class(.data, "htmlwidget")
+  function(data) {
+    script_line <- grep("^[/][*] R2D3 Source File: ", strsplit(data$x$script, "\n")[[1]], value = TRUE)
+    expect_s3_class(data, "r2d3")
+    expect_s3_class(data, "htmlwidget")
     expect_true(grepl("tree_network[.]js", script_line))
   }
 
