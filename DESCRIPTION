@@ -21,6 +21,7 @@ Imports:
 Suggests: 
     ape,
     chromote,
+    codemetar,
     covr,
     cffr,
     data.tree,
