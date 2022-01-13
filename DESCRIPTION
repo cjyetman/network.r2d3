@@ -22,6 +22,7 @@ Suggests:
     ape,
     chromote,
     covr,
+    cffr,
     data.tree,
     devtools,
     diffviewer,

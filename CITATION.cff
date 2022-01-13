@@ -1,0 +1,316 @@
+# -----------------------------------------------------------
+# CITATION file created with {cffr} R package, v0.2.0
+# See also: https://docs.ropensci.org/cffr/
+# -----------------------------------------------------------
+ 
+cff-version: 1.2.0
+message: 'To cite package "network.r2d3" in publications use:'
+type: software
+license: MIT
+title: 'network.r2d3: Makes interactive network graphs using r2d3'
+version: 0.0.0.9000
+abstract: Makes interactive network graphs using r2d3.
+authors:
+- family-names: Yetman
+  given-names: CJ
+  email: cj@cjyetman.com
+  orcid: https://orcid.org/0000-0001-5099-9500
+preferred-citation:
+  type: manual
+  title: 'network.r2d3: Makes interactive network graphs using r2d3'
+  authors:
+  - family-names: Yetman
+    given-names: CJ
+    email: cj@cjyetman.com
+    orcid: https://orcid.org/0000-0001-5099-9500
+  version: 0.0.0.9000
+  abstract: Makes interactive network graphs using r2d3.
+  repository-code: https://github.com/cjyetman/network.r2d3
+  url: https://cjyetman.github.io/network.r2d3
+  contact:
+  - family-names: Yetman
+    given-names: CJ
+    email: cj@cjyetman.com
+    orcid: https://orcid.org/0000-0001-5099-9500
+  keywords:
+  - d3
+  - data-visualization
+  - interactive-visualizations
+  - r
+  - r-package
+  - r2d3
+  license: MIT
+  year: '2022'
+repository-code: https://github.com/cjyetman/network.r2d3
+url: https://cjyetman.github.io/network.r2d3
+contact:
+- family-names: Yetman
+  given-names: CJ
+  email: cj@cjyetman.com
+  orcid: https://orcid.org/0000-0001-5099-9500
+keywords:
+- d3
+- data-visualization
+- interactive-visualizations
+- r
+- r-package
+- r2d3
+references:
+- type: software
+  title: 'jsonlite: A Simple and Robust JSON Parser and Generator for R'
+  authors:
+  - family-names: Ooms
+    given-names: Jeroen
+    email: jeroen@berkeley.edu
+    orcid: https://orcid.org/0000-0002-4035-0289
+  year: '2022'
+  notes: Imports
+  url: https://CRAN.R-project.org/package=jsonlite
+  version: '>= 0.9.6'
+- type: software
+  title: 'r2d3: Interface to ''D3'' Visualizations'
+  authors:
+  - family-names: Strayer
+    given-names: Nick
+    email: nick.strayer@rstudio.com
+  - family-names: Luraschi
+    given-names: Javier
+    email: jluraschi@gmail.com
+  - family-names: Allaire
+    given-names: JJ
+  year: '2022'
+  notes: Imports
+  url: https://CRAN.R-project.org/package=r2d3
+- type: software
+  title: 'ape: Analyses of Phylogenetics and Evolution'
+  authors:
+  - family-names: Paradis
+    given-names: Emmanuel
+    email: Emmanuel.Paradis@ird.fr
+    orcid: https://orcid.org/0000-0003-3092-2199
+  - family-names: Blomberg
+    given-names: Simon
+    orcid: https://orcid.org/0000-0003-1062-0839
+  - family-names: Bolker
+    given-names: Ben
+    orcid: https://orcid.org/0000-0002-2127-0443
+  - family-names: Brown
+    given-names: Joseph
+    orcid: https://orcid.org/0000-0002-3835-8062
+  - family-names: Claramunt
+    given-names: Santiago
+    orcid: https://orcid.org/0000-0002-8926-5974
+  - family-names: Claude
+    given-names: Julien
+    orcid: https://orcid.org/0000-0002-9267-1228
+  - family-names: Cuong
+    given-names: Hoa Sien
+  - family-names: Desper
+    given-names: Richard
+  - family-names: Didier
+    given-names: Gilles
+    orcid: https://orcid.org/0000-0003-0596-9112
+  - family-names: Durand
+    given-names: Benoit
+  - family-names: Dutheil
+    given-names: Julien
+    orcid: https://orcid.org/0000-0001-7753-4121
+  - family-names: Ewing
+    given-names: RJ
+  - family-names: Gascuel
+    given-names: Olivier
+  - family-names: Guillerme
+    given-names: Thomas
+    orcid: https://orcid.org/0000-0003-4325-1275
+  - family-names: Heibl
+    given-names: Christoph
+    orcid: https://orcid.org/0000-0002-7655-3299
+  - family-names: Ives
+    given-names: Anthony
+    orcid: https://orcid.org/0000-0001-9375-9523
+  - family-names: Jones
+    given-names: Bradley
+    orcid: https://orcid.org/0000-0003-4498-1069
+  - family-names: Krah
+    given-names: Franz
+    orcid: https://orcid.org/0000-0001-7866-7508
+  - family-names: Lawson
+    given-names: Daniel
+    orcid: https://orcid.org/0000-0002-5311-6213
+  - family-names: Lefort
+    given-names: Vincent
+  - family-names: Legendre
+    given-names: Pierre
+    orcid: https://orcid.org/0000-0002-3838-3305
+  - family-names: Lemon
+    given-names: Jim
+  - family-names: Louvel
+    given-names: Guillaume
+    orcid: https://orcid.org/0000-0002-7745-0785
+  - family-names: Marcon
+    given-names: Eric
+    orcid: https://orcid.org/0000-0002-5249-321X
+  - family-names: McCloskey
+    given-names: Rosemary
+    orcid: https://orcid.org/0000-0002-9772-8553
+  - family-names: Nylander
+    given-names: Johan
+  - family-names: Opgen-Rhein
+    given-names: Rainer
+  - family-names: Popescu
+    given-names: Andrei-Alin
+  - family-names: Royer-Carenzi
+    given-names: Manuela
+  - family-names: Schliep
+    given-names: Klaus
+    orcid: https://orcid.org/0000-0003-2941-0161
+  - family-names: Strimmer
+    given-names: Korbinian
+    orcid: https://orcid.org/0000-0001-7917-2056
+  - family-names: de Vienne
+    given-names: Damien
+    orcid: https://orcid.org/0000-0001-9532-5251
+  year: '2022'
+  notes: Suggests
+  url: https://CRAN.R-project.org/package=ape
+- type: software
+  title: 'chromote: Headless Chrome Web Browser Interface'
+  authors:
+  - family-names: Chang
+    given-names: Winston
+    email: winston@rstudio.com
+  year: '2022'
+  notes: Suggests
+- type: software
+  title: 'covr: Test Coverage for Packages'
+  authors:
+  - family-names: Hester
+    given-names: Jim
+    email: james.f.hester@gmail.com
+  year: '2022'
+  notes: Suggests
+  url: https://CRAN.R-project.org/package=covr
+- type: software
+  title: 'data.tree: General Purpose Hierarchical Data Structure'
+  authors:
+  - family-names: Glur
+    given-names: Christoph
+    email: christoph.glur@ipub.com
+  year: '2022'
+  notes: Suggests
+  url: https://CRAN.R-project.org/package=data.tree
+- type: software
+  title: 'devtools: Tools to Make Developing R Packages Easier'
+  authors:
+  - family-names: Wickham
+    given-names: Hadley
+  - family-names: Hester
+    given-names: Jim
+  - family-names: Chang
+    given-names: Winston
+  - family-names: Bryan
+    given-names: Jennifer
+    email: jenny@rstudio.com
+    orcid: https://orcid.org/0000-0002-6983-2759
+  year: '2022'
+  notes: Suggests
+  url: https://CRAN.R-project.org/package=devtools
+- type: software
+  title: 'diffviewer: HTML Widget to Show File Differences'
+  authors:
+  - family-names: Wickham
+    given-names: Hadley
+    email: hadley@rstudio.com
+  - family-names: Kunst
+    given-names: Joshua
+  - family-names: Chang
+    given-names: Winston
+    email: winston@rstudio.com
+  year: '2022'
+  notes: Suggests
+  url: https://CRAN.R-project.org/package=diffviewer
+- type: software
+  title: 'igraph: Network Analysis and Visualization'
+  authors:
+  - family-names: file.
+    given-names: See AUTHORS
+  year: '2022'
+  notes: Suggests
+  url: https://CRAN.R-project.org/package=igraph
+- type: software
+  title: 'pak: Another Approach to Package Installation'
+  authors:
+  - family-names: Csárdi
+    given-names: Gábor
+    email: csardi.gabor@gmail.com
+  - family-names: Hester
+    given-names: Jim
+    email: jim.hester@rstudio.com
+  year: '2022'
+  notes: Suggests
+  url: https://CRAN.R-project.org/package=pak
+- type: software
+  title: 'pkgdown: Make Static HTML Documentation for a Package'
+  authors:
+  - family-names: Wickham
+    given-names: Hadley
+    email: hadley@rstudio.com
+    orcid: https://orcid.org/0000-0003-4757-117X
+  - family-names: Hesselberth
+    given-names: Jay
+    orcid: https://orcid.org/0000-0002-6299-179X
+  - family-names: Salmon
+    given-names: Maëlle
+    orcid: https://orcid.org/0000-0002-2815-0399
+  year: '2022'
+  notes: Suggests
+  url: https://CRAN.R-project.org/package=pkgdown
+- type: software
+  title: 'preferably: A ''pkgdown'' Template'
+  authors:
+  - family-names: Abdol
+    given-names: Amir Masoud
+    email: i@amirmasoudabdol.name
+  year: '2022'
+  notes: Suggests
+  url: https://CRAN.R-project.org/package=preferably
+- type: software
+  title: 'testthat: Unit Testing for R'
+  authors:
+  - family-names: Wickham
+    given-names: Hadley
+    email: hadley@rstudio.com
+  year: '2022'
+  notes: Suggests
+  url: https://CRAN.R-project.org/package=testthat
+  version: '>= 3.0.0'
+- type: software
+  title: 'tibble: Simple Data Frames'
+  authors:
+  - family-names: Müller
+    given-names: Kirill
+    email: krlmlr+r@mailbox.org
+  - family-names: Wickham
+    given-names: Hadley
+    email: hadley@rstudio.com
+  year: '2022'
+  notes: Suggests
+  url: https://CRAN.R-project.org/package=tibble
+- type: software
+  title: 'tidygraph: A Tidy API for Graph Manipulation'
+  authors:
+  - family-names: Pedersen
+    given-names: Thomas Lin
+    email: thomasp85@gmail.com
+    orcid: https://orcid.org/0000-0002-5147-4711
+  year: '2022'
+  notes: Suggests
+  url: https://CRAN.R-project.org/package=tidygraph
+- type: software
+  title: 'webshot2: Take Screenshots of Web Pages'
+  authors:
+  - family-names: Chang
+    given-names: Winston
+    email: winston@rstudio.com
+  year: '2022'
+  notes: Suggests
