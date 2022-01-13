@@ -182,6 +182,19 @@ references:
   year: '2022'
   notes: Suggests
 - type: software
+  title: 'codemetar: Generate ''CodeMeta'' Metadata for R Packages'
+  authors:
+  - family-names: Boettiger
+    given-names: Carl
+    email: cboettig@gmail.com
+    orcid: https://orcid.org/0000-0002-1642-628X
+  - family-names: Salmon
+    given-names: Maëlle
+    orcid: https://orcid.org/0000-0002-2815-0399
+  year: '2022'
+  notes: Suggests
+  url: https://CRAN.R-project.org/package=codemetar
+- type: software
   title: 'covr: Test Coverage for Packages'
   authors:
   - family-names: Hester
@@ -190,6 +203,16 @@ references:
   year: '2022'
   notes: Suggests
   url: https://CRAN.R-project.org/package=covr
+- type: software
+  title: 'cffr: Generate Citation File Format (''cff'') Metadata for R Packages'
+  authors:
+  - family-names: Hernangómez
+    given-names: Diego
+    email: diego.hernangomezherrero@gmail.com
+    orcid: https://orcid.org/0000-0001-8457-4658
+  year: '2022'
+  notes: Suggests
+  url: https://CRAN.R-project.org/package=cffr
 - type: software
   title: 'data.tree: General Purpose Hierarchical Data Structure'
   authors:

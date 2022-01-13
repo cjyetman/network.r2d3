@@ -53,6 +53,18 @@
     },
     {
       "@type": "SoftwareApplication",
+      "identifier": "codemetar",
+      "name": "codemetar",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=codemetar"
+    },
+    {
+      "@type": "SoftwareApplication",
       "identifier": "covr",
       "name": "covr",
       "provider": {
@@ -62,6 +74,18 @@
         "url": "https://cran.r-project.org"
       },
       "sameAs": "https://CRAN.R-project.org/package=covr"
+    },
+    {
+      "@type": "SoftwareApplication",
+      "identifier": "cffr",
+      "name": "cffr",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=cffr"
     },
     {
       "@type": "SoftwareApplication",
@@ -219,7 +243,7 @@
     },
     "SystemRequirements": null
   },
-  "fileSize": "80.311KB",
+  "fileSize": "80.453KB",
   "relatedLink": "https://cjyetman.github.io/network.r2d3",
   "readme": "https://github.com/cjyetman/network.r2d3/blob/main/README.md",
   "keywords": ["r", "r-package", "data-visualization", "d3", "interactive-visualizations", "r2d3"]
