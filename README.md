@@ -2,6 +2,7 @@
 
 <!-- badges: start -->
 ![dev tests](https://github.com/cjyetman/network.r2d3/workflows/dev%20tests/badge.svg)
+[![CRAN status](https://www.r-pkg.org/badges/version/network.r2d3)](https://CRAN.R-project.org/package=network.r2d3)
 <!-- badges: end -->
 
 network.r2d3 makes interactive network charts in D3 leveraging [r2d3](https://rstudio.github.io/r2d3/)
