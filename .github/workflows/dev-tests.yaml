@@ -38,7 +38,6 @@ jobs:
         run: |
           install.packages("pak", repos = "https://r-lib.github.io/p/pak/dev/")
           pak::pkg_install("rstudio/chromote")
-          pak::pkg_install("amirmasoudabdol/preferably")
           pak::pkg_install("rstudio/webshot2")
           saveRDS(pak::pkg_deps_tree("local::.", dependencies = TRUE), ".github/r-depends.rds")
         shell: Rscript {0}

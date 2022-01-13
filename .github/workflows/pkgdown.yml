@@ -25,9 +25,16 @@ jobs:
         with:
           use-public-rspm: true
 
+      - name: Install chromote and webshot2 separately
+        run: |
+          install.packages("pak", repos = "https://r-lib.github.io/p/pak/dev/")
+          pak::pkg_install("rstudio/chromote")
+          pak::pkg_install("rstudio/webshot2")
+        shell: Rscript {0}
+
       - uses: r-lib/actions/setup-r-dependencies@v2
         with:
-          extra-packages: any::pkgdown, local::., chromote=?ignore-before-r=5
+          extra-packages: any::pkgdown, local::.
           needs: website
 
       - name: Build site
