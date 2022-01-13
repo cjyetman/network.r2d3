@@ -35,5 +35,4 @@ Suggests:
 Config/testthat/edition: 3
 Remotes: 
     rstudio/chromote,
-    amirmasoudabdol/preferably,
     rstudio/webshot2
