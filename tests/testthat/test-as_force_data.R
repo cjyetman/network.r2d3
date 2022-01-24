@@ -1,4 +1,4 @@
-test_deafult_characteristics <-
+test_default_characteristics <-
   function(.data) {
     expect_type(.data, "list")
     expect_equal(length(.data), 2L)
@@ -25,7 +25,7 @@ test_that("as_force_data() can process a list of lists", {
   data_list <- jsonlite::read_json('example-data/miserables.json')
   result <- as_force_data(data_list)
 
-  test_deafult_characteristics(result)
+  test_default_characteristics(result)
 })
 
 
@@ -33,7 +33,7 @@ test_that("as_force_data() can process a list of data frames", {
   data_list_df <- jsonlite::read_json('example-data/miserables.json', simplifyVector = TRUE)
   result <- as_force_data(data_list_df)
 
-  test_deafult_characteristics(result)
+  test_default_characteristics(result)
 })
 
 
@@ -42,7 +42,7 @@ test_that("as_force_data() can process a list of links data", {
   links_list <- data_list$links
   result <- as_force_data(links_list)
 
-  test_deafult_characteristics(result)
+  test_default_characteristics(result)
 })
 
 
@@ -51,7 +51,7 @@ test_that("as_force_data() can process a data frame of links data", {
   links_df <- data_list_df$links
   result <- as_force_data(links_df)
 
-  test_deafult_characteristics(result)
+  test_default_characteristics(result)
 })
 
 
@@ -59,7 +59,7 @@ test_that("as_force_data() can process an hclust", {
   hc <- hclust(dist(USArrests), "ave")
   result <- as_force_data(hc)
 
-  test_deafult_characteristics(result)
+  test_default_characteristics(result)
 })
 
 
@@ -68,7 +68,7 @@ test_that("as_force_data() can process an dendogram", {
   dhc <- as.dendrogram(hc)
   result <- as_force_data(dhc)
 
-  test_deafult_characteristics(result)
+  test_default_characteristics(result)
 })
 
 
@@ -78,7 +78,7 @@ test_that("as_force_data() can process an igraph object", {
   igraph_obj <- igraph::graph_from_data_frame(links_df)
   result <- as_force_data(igraph_obj)
 
-  test_deafult_characteristics(result)
+  test_default_characteristics(result)
 })
 
 
@@ -89,7 +89,7 @@ test_that("as_force_data() can process an igraph object with group information",
   igraph_obj <- igraph::graph_from_data_frame(links_df, vertices = nodes_df)
   result <- as_force_data(igraph_obj, group = "group")
 
-  test_deafult_characteristics(result)
+  test_default_characteristics(result)
   expect_gt(length(unique(result$nodes$group)), 1L)
 })
 
@@ -100,7 +100,7 @@ test_that("as_force_data() can process an tidygraph object", {
   tidygraph_obj <- tidygraph::as_tbl_graph(links_df)
   result <- as_force_data(tidygraph_obj)
 
-  test_deafult_characteristics(result)
+  test_default_characteristics(result)
 })
 
 
@@ -111,7 +111,7 @@ test_that("as_force_data() can process an tidygraph object with group informatio
   tidygraph_obj <- tidygraph::tbl_graph(nodes = nodes_df, edges = links_df)
   result <- as_force_data(tidygraph_obj)
 
-  test_deafult_characteristics(result)
+  test_default_characteristics(result)
   expect_gt(length(unique(result$nodes$group)), 1L)
 })
 
@@ -121,5 +121,5 @@ test_that("as_force_data() can process an tidygraph object made from an hclust o
   tidygraph_obj <- tidygraph::as_tbl_graph(hc)
   result <- as_force_data(tidygraph_obj)
 
-  test_deafult_characteristics(result)
+  test_default_characteristics(result)
 })
