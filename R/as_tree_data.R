@@ -45,18 +45,14 @@
 #'
 #' @md
 #' @export
-#'
-as_tree_data <- function(data = NULL, ...) {
+
+as_tree_data <- function(data, ...) {
   UseMethod("as_tree_data")
 }
 
 
 #########################################################################
-#' Convert hclust objects to \code{treenetdf}
-#'
-#' @inheritParams as_tree_data
-#' @param ... arguments to pass to methods.
-#'
+#' @describeIn as_tree_data Convert hclust objects to \code{treenetdf}
 #' @export
 
 as_tree_data.hclust <- function(data, ...) {
@@ -92,15 +88,11 @@ as_tree_data.hclust <- function(data, ...) {
 
 
 #########################################################################
-#' Convert a nested list to \code{treenetdf}
-#'
-#' @inheritParams as_tree_data
+#' @describeIn as_tree_data Convert a nested list to \code{treenetdf}
 #' @param children_name character specifying the name used for the list element
 #' that contains the childeren elements.
 #' @param node_name character specifying the name used for the list element that
 #' contains the name of the node
-#' @param ... arguments to pass to methods.
-#'
 #' @export
 
 as_tree_data.list <- function(data, children_name = 'children',
@@ -154,10 +146,7 @@ as_tree_data.list <- function(data, children_name = 'children',
 
 
 #########################################################################
-#' data.tree to \code{treenetdf}
-#'
-#' @inheritParams as_tree_data
-#' @param ... arguments to pass to methods.
+#' @describeIn as_tree_data data.tree to \code{treenetdf}
 #' @export
 
 as_tree_data.Node <-  function(data, ...) {
@@ -179,11 +168,7 @@ as_tree_data.Node <-  function(data, ...) {
 
 
 #########################################################################
-#' Phylo tree to \code{treenetdf}
-#'
-#' @inheritParams as_tree_data
-#' @param ... arguments to pass to methods.
-#'
+#' @describeIn as_tree_data Phylo tree to \code{treenetdf}
 #' @export
 
 as_tree_data.phylo <- function(data, ...) {
@@ -221,11 +206,7 @@ as_tree_data.phylo <- function(data, ...) {
 
 
 #########################################################################
-#' tbl_graph_to_treenetdf
-#'
-#' @inheritParams as_tree_data
-#' @param ... arguments to pass to methods.
-#'
+#' @describeIn as_tree_data tbl_graph_to_treenetdf
 #' @export
 
 as_tree_data.tbl_graph <- function(data, ...) {
@@ -234,12 +215,9 @@ as_tree_data.tbl_graph <- function(data, ...) {
 
 
 #########################################################################
-#' Convert igraph tree to \code{treenetdf}
-#'
-#' @inheritParams as_tree_data
+#' @describeIn as_tree_data Convert igraph tree to \code{treenetdf}
 #' @param root character specifying the string that should be used to name the
 #' root node
-#' @param ... arguments to pass to methods.
 #' @export
 
 as_tree_data.igraph <- function(data, root = 'root', ...) {
@@ -273,9 +251,7 @@ as_tree_data.igraph <- function(data, root = 'root', ...) {
 
 
 #########################################################################
-#' Convert a data.frame to a \code{treenetdf}
-#'
-#' @inheritParams as_tree_data
+#' @describeIn as_tree_data Convert a data.frame to a \code{treenetdf}
 #' @param cols named character vector specifying the names of columns to be
 #' converted to the standard \code{treenetdf} names.
 #' @param df_type character specifying which type of data frame to convert. Can
@@ -284,13 +260,12 @@ as_tree_data.igraph <- function(data, root = 'root', ...) {
 #' @param subset character vector specifying the names of the columns (in order)
 #' that should be used to define the hierarchy.
 #' @param root root name.
-#' @param ... arguments to pass to methods.
-#'
 #' @export
 
 as_tree_data.data.frame <- function(data,
                                     cols = NULL,
-                                    df_type = 'treenetdf', subset = names(data),
+                                    df_type = 'treenetdf',
+                                    subset = names(data),
                                     root, ...) {
   if (df_type == 'treenetdf') {
     if (!is.null(cols)) {

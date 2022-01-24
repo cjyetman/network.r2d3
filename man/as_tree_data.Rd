@@ -2,15 +2,61 @@
 % Please edit documentation in R/as_tree_data.R
 \name{as_tree_data}
 \alias{as_tree_data}
+\alias{as_tree_data.hclust}
+\alias{as_tree_data.list}
+\alias{as_tree_data.Node}
+\alias{as_tree_data.phylo}
+\alias{as_tree_data.tbl_graph}
+\alias{as_tree_data.igraph}
+\alias{as_tree_data.data.frame}
 \title{Convert one of numerous data types to tree_network's 'native' treenetdf form}
 \usage{
-as_tree_data(data = NULL, ...)
+as_tree_data(data, ...)
+
+\method{as_tree_data}{hclust}(data, ...)
+
+\method{as_tree_data}{list}(data, children_name = "children", node_name = "name", ...)
+
+\method{as_tree_data}{Node}(data, ...)
+
+\method{as_tree_data}{phylo}(data, ...)
+
+\method{as_tree_data}{tbl_graph}(data, ...)
+
+\method{as_tree_data}{igraph}(data, root = "root", ...)
+
+\method{as_tree_data}{data.frame}(
+  data,
+  cols = NULL,
+  df_type = "treenetdf",
+  subset = names(data),
+  root,
+  ...
+)
 }
 \arguments{
 \item{data}{a tree network description in one of numerous forms (see
 details).}
 
 \item{...}{other arguments that will be passed on to as_tree_data}
+
+\item{children_name}{character specifying the name used for the list element
+that contains the childeren elements.}
+
+\item{node_name}{character specifying the name used for the list element that
+contains the name of the node}
+
+\item{root}{root name.}
+
+\item{cols}{named character vector specifying the names of columns to be
+converted to the standard \code{treenetdf} names.}
+
+\item{df_type}{character specifying which type of data frame to convert. Can
+be \code{treenetdf} or
+\code{leafpathdf}.}
+
+\item{subset}{character vector specifying the names of the columns (in order)
+that should be used to define the hierarchy.}
 }
 \description{
 The \code{tree_network} function uses a 'native' data format that consists of a data
@@ -40,6 +86,23 @@ addressed by adding columns for formatting of the incoming link
 \item ape \code{phylo}
 }
 }
+\section{Methods (by class)}{
+\itemize{
+\item \code{hclust}: Convert hclust objects to \code{treenetdf}
+
+\item \code{list}: Convert a nested list to \code{treenetdf}
+
+\item \code{Node}: data.tree to \code{treenetdf}
+
+\item \code{phylo}: Phylo tree to \code{treenetdf}
+
+\item \code{tbl_graph}: tbl_graph_to_treenetdf
+
+\item \code{igraph}: Convert igraph tree to \code{treenetdf}
+
+\item \code{data.frame}: Convert a data.frame to a \code{treenetdf}
+}}
+
 \examples{
 links <- read.csv(header = TRUE, stringsAsFactors = FALSE, text = '
                    source,target,name
