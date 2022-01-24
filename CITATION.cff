@@ -1,5 +1,5 @@
 # -----------------------------------------------------------
-# CITATION file created with {cffr} R package, v0.2.0
+# CITATION file created with {cffr} R package, v0.2.1
 # See also: https://docs.ropensci.org/cffr/
 # -----------------------------------------------------------
  
@@ -57,18 +57,21 @@ keywords:
 - r2d3
 references:
 - type: software
-  title: 'jsonlite: A Simple and Robust JSON Parser and Generator for R'
+  title: jsonlite
+  abstract: 'jsonlite: A Simple and Robust JSON Parser and Generator for R'
+  notes: Imports
   authors:
   - family-names: Ooms
     given-names: Jeroen
     email: jeroen@berkeley.edu
     orcid: https://orcid.org/0000-0002-4035-0289
   year: '2022'
-  notes: Imports
   url: https://CRAN.R-project.org/package=jsonlite
   version: '>= 0.9.6'
 - type: software
-  title: 'r2d3: Interface to ''D3'' Visualizations'
+  title: r2d3
+  abstract: 'r2d3: Interface to ''D3'' Visualizations'
+  notes: Imports
   authors:
   - family-names: Strayer
     given-names: Nick
@@ -79,10 +82,11 @@ references:
   - family-names: Allaire
     given-names: JJ
   year: '2022'
-  notes: Imports
   url: https://CRAN.R-project.org/package=r2d3
 - type: software
-  title: 'ape: Analyses of Phylogenetics and Evolution'
+  title: ape
+  abstract: 'ape: Analyses of Phylogenetics and Evolution'
+  notes: Suggests
   authors:
   - family-names: Paradis
     given-names: Emmanuel
@@ -171,18 +175,21 @@ references:
     given-names: Damien
     orcid: https://orcid.org/0000-0001-9532-5251
   year: '2022'
-  notes: Suggests
   url: https://CRAN.R-project.org/package=ape
 - type: software
-  title: 'chromote: Headless Chrome Web Browser Interface'
+  title: chromote
+  abstract: 'chromote: Headless Chrome Web Browser Interface'
+  notes: Suggests
   authors:
   - family-names: Chang
     given-names: Winston
     email: winston@rstudio.com
   year: '2022'
-  notes: Suggests
+  url: https://github.com/rstudio/chromote
 - type: software
-  title: 'codemetar: Generate ''CodeMeta'' Metadata for R Packages'
+  title: codemetar
+  abstract: 'codemetar: Generate ''CodeMeta'' Metadata for R Packages'
+  notes: Suggests
   authors:
   - family-names: Boettiger
     given-names: Carl
@@ -192,38 +199,42 @@ references:
     given-names: Maëlle
     orcid: https://orcid.org/0000-0002-2815-0399
   year: '2022'
-  notes: Suggests
   url: https://CRAN.R-project.org/package=codemetar
 - type: software
-  title: 'covr: Test Coverage for Packages'
+  title: covr
+  abstract: 'covr: Test Coverage for Packages'
+  notes: Suggests
   authors:
   - family-names: Hester
     given-names: Jim
     email: james.f.hester@gmail.com
   year: '2022'
-  notes: Suggests
   url: https://CRAN.R-project.org/package=covr
 - type: software
-  title: 'cffr: Generate Citation File Format (''cff'') Metadata for R Packages'
+  title: cffr
+  abstract: 'cffr: Generate Citation File Format (''cff'') Metadata for R Packages'
+  notes: Suggests
   authors:
   - family-names: Hernangómez
     given-names: Diego
     email: diego.hernangomezherrero@gmail.com
     orcid: https://orcid.org/0000-0001-8457-4658
   year: '2022'
-  notes: Suggests
   url: https://CRAN.R-project.org/package=cffr
 - type: software
-  title: 'data.tree: General Purpose Hierarchical Data Structure'
+  title: data.tree
+  abstract: 'data.tree: General Purpose Hierarchical Data Structure'
+  notes: Suggests
   authors:
   - family-names: Glur
     given-names: Christoph
     email: christoph.glur@ipub.com
   year: '2022'
-  notes: Suggests
   url: https://CRAN.R-project.org/package=data.tree
 - type: software
-  title: 'devtools: Tools to Make Developing R Packages Easier'
+  title: devtools
+  abstract: 'devtools: Tools to Make Developing R Packages Easier'
+  notes: Suggests
   authors:
   - family-names: Wickham
     given-names: Hadley
@@ -236,10 +247,11 @@ references:
     email: jenny@rstudio.com
     orcid: https://orcid.org/0000-0002-6983-2759
   year: '2022'
-  notes: Suggests
   url: https://CRAN.R-project.org/package=devtools
 - type: software
-  title: 'diffviewer: HTML Widget to Show File Differences'
+  title: diffviewer
+  abstract: 'diffviewer: HTML Widget to Show File Differences'
+  notes: Suggests
   authors:
   - family-names: Wickham
     given-names: Hadley
@@ -250,18 +262,20 @@ references:
     given-names: Winston
     email: winston@rstudio.com
   year: '2022'
-  notes: Suggests
   url: https://CRAN.R-project.org/package=diffviewer
 - type: software
-  title: 'igraph: Network Analysis and Visualization'
+  title: igraph
+  abstract: 'igraph: Network Analysis and Visualization'
+  notes: Suggests
   authors:
   - family-names: file.
     given-names: See AUTHORS
   year: '2022'
-  notes: Suggests
   url: https://CRAN.R-project.org/package=igraph
 - type: software
-  title: 'pak: Another Approach to Package Installation'
+  title: pak
+  abstract: 'pak: Another Approach to Package Installation'
+  notes: Suggests
   authors:
   - family-names: Csárdi
     given-names: Gábor
@@ -270,10 +284,11 @@ references:
     given-names: Jim
     email: jim.hester@rstudio.com
   year: '2022'
-  notes: Suggests
   url: https://CRAN.R-project.org/package=pak
 - type: software
-  title: 'pkgdown: Make Static HTML Documentation for a Package'
+  title: pkgdown
+  abstract: 'pkgdown: Make Static HTML Documentation for a Package'
+  notes: Suggests
   authors:
   - family-names: Wickham
     given-names: Hadley
@@ -286,29 +301,32 @@ references:
     given-names: Maëlle
     orcid: https://orcid.org/0000-0002-2815-0399
   year: '2022'
-  notes: Suggests
   url: https://CRAN.R-project.org/package=pkgdown
 - type: software
-  title: 'preferably: A ''pkgdown'' Template'
+  title: preferably
+  abstract: 'preferably: A ''pkgdown'' Template'
+  notes: Suggests
   authors:
   - family-names: Abdol
     given-names: Amir Masoud
     email: i@amirmasoudabdol.name
   year: '2022'
-  notes: Suggests
   url: https://CRAN.R-project.org/package=preferably
 - type: software
-  title: 'testthat: Unit Testing for R'
+  title: testthat
+  abstract: 'testthat: Unit Testing for R'
+  notes: Suggests
   authors:
   - family-names: Wickham
     given-names: Hadley
     email: hadley@rstudio.com
   year: '2022'
-  notes: Suggests
   url: https://CRAN.R-project.org/package=testthat
   version: '>= 3.0.0'
 - type: software
-  title: 'tibble: Simple Data Frames'
+  title: tibble
+  abstract: 'tibble: Simple Data Frames'
+  notes: Suggests
   authors:
   - family-names: Müller
     given-names: Kirill
@@ -317,23 +335,15 @@ references:
     given-names: Hadley
     email: hadley@rstudio.com
   year: '2022'
-  notes: Suggests
   url: https://CRAN.R-project.org/package=tibble
 - type: software
-  title: 'tidygraph: A Tidy API for Graph Manipulation'
+  title: tidygraph
+  abstract: 'tidygraph: A Tidy API for Graph Manipulation'
+  notes: Suggests
   authors:
   - family-names: Pedersen
     given-names: Thomas Lin
     email: thomasp85@gmail.com
     orcid: https://orcid.org/0000-0002-5147-4711
   year: '2022'
-  notes: Suggests
   url: https://CRAN.R-project.org/package=tidygraph
-- type: software
-  title: 'webshot2: Take Screenshots of Web Pages'
-  authors:
-  - family-names: Chang
-    given-names: Winston
-    email: winston@rstudio.com
-  year: '2022'
-  notes: Suggests
