@@ -28,6 +28,12 @@
     <loc>/reference/index.html</loc>
   </url>
   <url>
+    <loc>/reference/save_as_png.html</loc>
+  </url>
+  <url>
+    <loc>/reference/save_as_svg.html</loc>
+  </url>
+  <url>
     <loc>/reference/tree_network.html</loc>
   </url>
 </urlset>
