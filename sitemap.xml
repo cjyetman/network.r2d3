@@ -16,28 +16,13 @@
     <loc>/index.html</loc>
   </url>
   <url>
-    <loc>/reference/as_tree_data.Node.html</loc>
-  </url>
-  <url>
-    <loc>/reference/as_tree_data.data.frame.html</loc>
-  </url>
-  <url>
-    <loc>/reference/as_tree_data.hclust.html</loc>
+    <loc>/reference/as_force_data.html</loc>
   </url>
   <url>
     <loc>/reference/as_tree_data.html</loc>
   </url>
   <url>
-    <loc>/reference/as_tree_data.igraph.html</loc>
-  </url>
-  <url>
-    <loc>/reference/as_tree_data.list.html</loc>
-  </url>
-  <url>
-    <loc>/reference/as_tree_data.phylo.html</loc>
-  </url>
-  <url>
-    <loc>/reference/as_tree_data.tbl_graph.html</loc>
+    <loc>/reference/force_network.html</loc>
   </url>
   <url>
     <loc>/reference/index.html</loc>
