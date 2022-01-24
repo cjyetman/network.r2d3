@@ -1,5 +1,9 @@
 save_as_svg <-
   function(widget, filepath, background = "white", delay = 0.5) {
+    if (!requireNamespace("chromote", quietly = TRUE)) {
+      stop("chromote package required for `save_as_svg()` function", call. = FALSE)
+    }
+
     tmp_html <- tempfile(fileext = ".html")
     on.exit(unlink(tmp_html))
     r2d3::save_d3_html(widget, file = tmp_html, background = background)
