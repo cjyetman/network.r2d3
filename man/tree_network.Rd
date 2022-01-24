@@ -28,6 +28,8 @@ details)}
 \item{linkType}{type on link shape; one of "diagonal" or "elbow" (see details) (default == "diagonal")}
 
 \item{...}{other options (see details)}
+
+\item{viewer}{whether to view the plot in the internal viewer or browser}
 }
 \description{
 The \code{tree_network} function creates an interactive tree network plot in an htmlwidget

@@ -7,6 +7,7 @@
 #' @param direction direction toward which the tree grows; one of "right", "left", "down", or "up" (see details) (default == "right")
 #' @param linkType type on link shape; one of "diagonal" or "elbow" (see details) (default == "diagonal")
 #' @param ... other options (see details)
+#' @param viewer whether to view the plot in the internal viewer or browser
 #'
 #' @description
 #' The `tree_network` function creates an interactive tree network plot in an htmlwidget
