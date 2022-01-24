@@ -50,3 +50,9 @@ format_force_data_link_data_frame <-
 
     .data
   }
+
+
+is_url <- function(path) {
+  grepl("^((http|ftp)s?|sftp)://", path)
+}
+

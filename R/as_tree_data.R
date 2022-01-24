@@ -52,6 +52,19 @@ as_tree_data <- function(data, ...) {
 
 
 #########################################################################
+#' @describeIn as_tree_data Convert JSON from URL to \code{treenetdf}
+#' @export
+
+as_tree_data.character <- function(data, ...) {
+  if (is_url(data)) {
+    return(as_tree_data(jsonlite::fromJSON(data, simplifyVector = FALSE)))
+  }
+
+  stop("`data` must be an object or valid URL to a JSON file", call. = FALSE)
+}
+
+
+#########################################################################
 #' @describeIn as_tree_data Convert hclust objects to \code{treenetdf}
 #' @export
 

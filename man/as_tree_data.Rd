@@ -2,6 +2,7 @@
 % Please edit documentation in R/as_tree_data.R
 \name{as_tree_data}
 \alias{as_tree_data}
+\alias{as_tree_data.character}
 \alias{as_tree_data.hclust}
 \alias{as_tree_data.list}
 \alias{as_tree_data.Node}
@@ -12,6 +13,8 @@
 \title{Convert one of numerous data types to tree_network's 'native' treenetdf form}
 \usage{
 as_tree_data(data, ...)
+
+\method{as_tree_data}{character}(data, ...)
 
 \method{as_tree_data}{hclust}(data, ...)
 
@@ -88,6 +91,8 @@ addressed by adding columns for formatting of the incoming link
 }
 \section{Methods (by class)}{
 \itemize{
+\item \code{character}: Convert JSON from URL to \code{treenetdf}
+
 \item \code{hclust}: Convert hclust objects to \code{treenetdf}
 
 \item \code{list}: Convert a nested list to \code{treenetdf}
