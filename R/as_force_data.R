@@ -1,21 +1,37 @@
+#' Convert one of numerous data types to force_network's 'native' data format
+#'
+#' @param .data a force network description in one of numerous forms (see
+#' details).
+#' @param ... other arguments that will be passed on to as_force_data
+#'
+#' @description
+#' The `force_network` function uses a 'native' data format that consists of a...
+#'
+#' @md
+#' @export
+
 as_force_data <- function(.data, ...) {
-  if (inherits(.data, "list")) {
-    .data <- as_force_data.list(.data, ...)
-  } else if (inherits(.data, "data.frame")) {
-    .data <- as_force_data.data.frame(.data)
-  } else if (inherits(.data, "hclust")) {
-    .data <- as_force_data.hclust(.data)
-  } else if (inherits(.data, "dendrogram")) {
-    .data <- as_force_data.dendrogram(.data)
-  } else if (inherits(.data, "igraph")) {
-    .data <- as_force_data.igraph(.data)
-  }
-  .data
+  UseMethod("as_force_data")
 }
 
 
+#' @describeIn as_force_data
+#' @export
+
+as_force_data.character <- function(.data, ...) {
+  if (is_url(.data)) {
+    return(as_force_data(jsonlite::fromJSON(.data)))
+  }
+
+  stop("`data` must be an object or valid URL to a JSON file", call. = FALSE)
+}
+
+
+#' @describeIn as_force_data
+#' @export
+
 as_force_data.data.frame <-
-  function(.data) {
+  function(.data, ...) {
     # convert links data frame
     .data <- as_force_data_links(.data)
 
@@ -26,8 +42,11 @@ as_force_data.data.frame <-
   }
 
 
+#' @describeIn as_force_data
+#' @export
+
 as_force_data.igraph <-
-  function(.data) {
+  function(.data, ...) {
     links <- igraph::as_data_frame(.data, "edges")
     nodes <- igraph::as_data_frame(.data, "vertices")
 
@@ -51,8 +70,11 @@ as_force_data.igraph <-
   }
 
 
+#' @describeIn as_force_data
+#' @export
+
 as_force_data.hclust <-
-  function(.data) {
+  function(.data, ...) {
     # convert to a data frame
     clustparents <-
       sapply(seq_along(.data$height), function(i) {
@@ -81,14 +103,20 @@ as_force_data.hclust <-
   }
 
 
+#' @describeIn as_force_data
+#' @export
+
 as_force_data.dendrogram <-
-  function(.data) {
+  function(.data, ...) {
     # convert to hclust
     .data <- stats::as.hclust(.data)
 
     return(as_force_data(.data))
   }
 
+
+#' @describeIn as_force_data
+#' @export
 
 as_force_data.list <-
   function(.data, ...) {
