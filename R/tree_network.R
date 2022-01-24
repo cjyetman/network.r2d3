@@ -21,7 +21,8 @@
 #' @md
 #' @export
 tree_network <- function(data, width = NULL, height = NULL, treeType = 'tidy',
-                        direction = 'right', linkType = 'diagonal', ...) {
+                        direction = 'right', linkType = 'diagonal', ...,
+                        viewer = "internal") {
   data <- as_tree_data(data)
 
   default <- function(defaults = NULL) {
@@ -70,6 +71,7 @@ tree_network <- function(data, width = NULL, height = NULL, treeType = 'tidy',
     script = system.file("d3/tree_network.js", package = "network.r2d3"),
     d3_version = 4,
     width = width,
-    height = height
+    height = height,
+    viewer = viewer
   )
 }

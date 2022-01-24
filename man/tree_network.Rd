@@ -11,7 +11,8 @@ tree_network(
   treeType = "tidy",
   direction = "right",
   linkType = "diagonal",
-  ...
+  ...,
+  viewer = "internal"
 )
 }
 \arguments{
