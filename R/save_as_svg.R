@@ -1,3 +1,16 @@
+#' Save a SVG screenshot of a htmlwidget
+#'
+#' @param widget a htmlwidget
+#' @param filepath a filepath where to save the file
+#' @param background the background color underneath/behind the htmlwidget
+#' @param delay a delay (in seconds) to wait before taking the screenshot
+#'
+#' @description
+#' The `save_as_svg` function takes a screenshot of a htmlwidget as a SVG image.
+#'
+#' @md
+#' @export
+
 save_as_svg <-
   function(widget, filepath, background = "white", delay = 0.5) {
     if (!requireNamespace("chromote", quietly = TRUE)) {
