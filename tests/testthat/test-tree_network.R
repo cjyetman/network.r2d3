@@ -8,6 +8,7 @@ test_default_characteristics <-
 
 
 test_that("tree_network() svg output", {
+  skip_on_ci()
   example <- data.frame(source = c(NA, rep(1L, 3L)),
                         target = 1L:4L,
                         name = LETTERS[1L:4L])
