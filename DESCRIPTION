@@ -1,12 +1,14 @@
 Package: network.r2d3
 Title: Makes interactive network graphs using r2d3
 Version: 0.0.0.9000
-Authors@R: 
+Authors@R: c(
     person(given = "CJ",
            family = "Yetman",
            role = c("aut", "cre"),
            email = "cj@cjyetman.com",
-           comment = c(ORCID = "0000-0001-5099-9500"))
+           comment = c(ORCID = "0000-0001-5099-9500")),
+    person("Mike", "Bostock", role = "cph", comment = "d3-sankey library, https://github.com/d3/d3-sankey")
+    )
 Description: Makes interactive network graphs using r2d3.
 URL: https://cjyetman.github.io/network.r2d3
 BugReports: https://github.com/cjyetman/network.r2d3/issues
