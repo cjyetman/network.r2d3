@@ -19,6 +19,9 @@
     <loc>/reference/as_force_data.html</loc>
   </url>
   <url>
+    <loc>/reference/as_sankey_data.html</loc>
+  </url>
+  <url>
     <loc>/reference/as_tree_data.html</loc>
   </url>
   <url>
@@ -26,6 +29,9 @@
   </url>
   <url>
     <loc>/reference/index.html</loc>
+  </url>
+  <url>
+    <loc>/reference/sankey_network.html</loc>
   </url>
   <url>
     <loc>/reference/save_as_png.html</loc>
