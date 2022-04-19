@@ -37,5 +37,3 @@ Suggests:
     tibble,
     tidygraph
 Config/testthat/edition: 3
-Remotes: 
-    rstudio/chromote
