@@ -4,7 +4,7 @@
   "identifier": "network.r2d3",
   "description": "Makes interactive network graphs using r2d3.",
   "name": "network.r2d3: Makes interactive network graphs using r2d3",
-  "codeRepository": "https://github.com/cjyetman/network.r2d3",
+  "codeRepository": "https://cjyetman.github.io/network.r2d3",
   "issueTracker": "https://github.com/cjyetman/network.r2d3/issues",
   "license": "https://spdx.org/licenses/MIT",
   "version": "0.0.0.9000",
@@ -13,7 +13,7 @@
     "name": "R",
     "url": "https://r-project.org"
   },
-  "runtimePlatform": "R version 4.1.2 (2021-11-01)",
+  "runtimePlatform": "R version 4.3.2 (2023-10-31)",
   "author": [
     {
       "@type": "Person",
@@ -21,6 +21,13 @@
       "familyName": "Yetman",
       "email": "cj@cjyetman.com",
       "@id": "https://orcid.org/0000-0001-5099-9500"
+    }
+  ],
+  "copyrightHolder": [
+    {
+      "@type": "Person",
+      "givenName": "Mike",
+      "familyName": "Bostock"
     }
   ],
   "maintainer": [
@@ -49,7 +56,13 @@
       "@type": "SoftwareApplication",
       "identifier": "chromote",
       "name": "chromote",
-      "sameAs": "https://github.com/rstudio/chromote"
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=chromote"
     },
     {
       "@type": "SoftwareApplication",
@@ -207,12 +220,6 @@
         "url": "https://cran.r-project.org"
       },
       "sameAs": "https://CRAN.R-project.org/package=tidygraph"
-    },
-    {
-      "@type": "SoftwareApplication",
-      "identifier": "webshot2",
-      "name": "webshot2",
-      "sameAs": "https://github.com/rstudio/webshot2"
     }
   ],
   "softwareRequirements": {
@@ -231,6 +238,11 @@
     },
     "2": {
       "@type": "SoftwareApplication",
+      "identifier": "methods",
+      "name": "methods"
+    },
+    "3": {
+      "@type": "SoftwareApplication",
       "identifier": "r2d3",
       "name": "r2d3",
       "provider": {
@@ -243,8 +255,5 @@
     },
     "SystemRequirements": null
   },
-  "fileSize": "80.453KB",
-  "relatedLink": "https://cjyetman.github.io/network.r2d3",
-  "readme": "https://github.com/cjyetman/network.r2d3/blob/main/README.md",
-  "keywords": ["r", "r-package", "data-visualization", "d3", "interactive-visualizations", "r2d3"]
+  "fileSize": "114.782KB"
 }
