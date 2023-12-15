@@ -23,18 +23,18 @@ sankey_network <- function(data, width = NULL, height = NULL, ..., viewer = "bro
                            json_verabitm = TRUE)
 
   options <- list(
-    linkStrokeOpacity = ifelse(hasArg(linkStrokeOpacity), list(...)$linkStrokeOpacity, 0.3),
-    linkMixBlendMode = ifelse(hasArg(linkMixBlendMode), list(...)$linkMixBlendMode, "multiply"),
-    linkPath = ifelse(hasArg(linkPath), list(...)$linkPath, "d3.sankeyLinkHorizontal()"),
-    linkColor = ifelse(hasArg(linkColor), list(...)$linkColor, "source-target"),
-    nodeAlign = ifelse(hasArg(nodeAlign), list(...)$nodeAlign, "justify"),
-    nodeGroup = ifelse(hasArg(nodeGroup), list(...)$nodeGroup, "group"),
-    nodeWidth = ifelse(hasArg(nodeWidth), list(...)$nodeWidth, 15),
-    nodePadding = ifelse(hasArg(nodePadding), list(...)$nodePadding, 10),
-    nodeLabelPadding = ifelse(hasArg(nodeLabelPadding), list(...)$nodeLabelPadding, 6),
-    nodeLabelFontFamily = ifelse(hasArg(nodeLabelFontFamily), list(...)$nodeLabelFontFamily, "sans-serif"),
-    nodeLabelFontSize = ifelse(hasArg(nodeLabelFontSize), list(...)$nodeLabelFontSize, 10),
-    colors = ifelse(hasArg(color), list(...)$color, "d3.schemeCategory10")
+    linkStrokeOpacity = ifelse(methods::hasArg("linkStrokeOpacity"), list(...)$linkStrokeOpacity, 0.3),
+    linkMixBlendMode = ifelse(methods::hasArg("linkMixBlendMode"), list(...)$linkMixBlendMode, "multiply"),
+    linkPath = ifelse(methods::hasArg("linkPath"), list(...)$linkPath, "d3.sankeyLinkHorizontal()"),
+    linkColor = ifelse(methods::hasArg("linkColor"), list(...)$linkColor, "source-target"),
+    nodeAlign = ifelse(methods::hasArg("nodeAlign"), list(...)$nodeAlign, "justify"),
+    nodeGroup = ifelse(methods::hasArg("nodeGroup"), list(...)$nodeGroup, "group"),
+    nodeWidth = ifelse(methods::hasArg("nodeWidth"), list(...)$nodeWidth, 15),
+    nodePadding = ifelse(methods::hasArg("nodePadding"), list(...)$nodePadding, 10),
+    nodeLabelPadding = ifelse(methods::hasArg("nodeLabelPadding"), list(...)$nodeLabelPadding, 6),
+    nodeLabelFontFamily = ifelse(methods::hasArg("nodeLabelFontFamily"), list(...)$nodeLabelFontFamily, "sans-serif"),
+    nodeLabelFontSize = ifelse(methods::hasArg("nodeLabelFontSize"), list(...)$nodeLabelFontSize, 10),
+    colors = ifelse(methods::hasArg("color"), list(...)$color, "d3.schemeCategory10")
   )
 
   r2d3::r2d3(
