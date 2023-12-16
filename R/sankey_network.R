@@ -13,7 +13,7 @@
 #' @md
 #' @export
 
-sankey_network <- function(data, width = NULL, height = NULL, ..., viewer = "browser") {
+sankey_network <- function(data, width = NULL, height = NULL, ..., viewer = "internal") {
   data <- as_sankey_data(data, ...)
 
   data <- jsonlite::toJSON(data, null = "null", na = "null", auto_unbox = TRUE,
