@@ -36,7 +36,7 @@ as_sankey_data.data.frame <-
     .data <- as_sankey_data_links(.data)
 
     # build nodes data frame
-    nodes <- data.frame(id = unique(c(.data$source, .data$target)), group = 1L)
+    nodes <- as_sankey_data_nodes(data.frame(id = unique(c(.data$source, .data$target))))
 
     return(list(nodes = nodes, links = .data))
   }
