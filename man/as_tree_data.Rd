@@ -91,23 +91,23 @@ addressed by adding columns for formatting of the incoming link
 }
 \section{Methods (by class)}{
 \itemize{
-\item \code{character}: Convert JSON from URL to \code{treenetdf}
+\item \code{as_tree_data(character)}: Convert JSON from URL to \code{treenetdf}
 
-\item \code{hclust}: Convert hclust objects to \code{treenetdf}
+\item \code{as_tree_data(hclust)}: Convert hclust objects to \code{treenetdf}
 
-\item \code{list}: Convert a nested list to \code{treenetdf}
+\item \code{as_tree_data(list)}: Convert a nested list to \code{treenetdf}
 
-\item \code{Node}: data.tree to \code{treenetdf}
+\item \code{as_tree_data(Node)}: data.tree to \code{treenetdf}
 
-\item \code{phylo}: Phylo tree to \code{treenetdf}
+\item \code{as_tree_data(phylo)}: Phylo tree to \code{treenetdf}
 
-\item \code{tbl_graph}: tbl_graph_to_treenetdf
+\item \code{as_tree_data(tbl_graph)}: tbl_graph_to_treenetdf
 
-\item \code{igraph}: Convert igraph tree to \code{treenetdf}
+\item \code{as_tree_data(igraph)}: Convert igraph tree to \code{treenetdf}
 
-\item \code{data.frame}: Convert a data.frame to a \code{treenetdf}
+\item \code{as_tree_data(data.frame)}: Convert a data.frame to a \code{treenetdf}
+
 }}
-
 \examples{
 links <- read.csv(header = TRUE, stringsAsFactors = FALSE, text = '
                    source,target,name
