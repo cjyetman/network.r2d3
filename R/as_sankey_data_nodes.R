@@ -35,12 +35,18 @@ as_sankey_data_nodes.data.frame <-
     # set the name of the node id variable to "id"
     names(.data)[id_idx] <- "id"
 
-    # if `id` is a character vector, set that to the names and make a numeric `id`
-    if (is.character(.data$id)) {
-      if (!"name" %in% names(.data)) {
-        .data$name <- .data$id
-      }
-      .data$id <- seq_along(.data$id) - 1
+    # find a "label" column, otherwise assume it's the first column
+    label_names <- c("names",
+                  "labels",
+                  "name",
+                  "label")
+
+    label_idx <- index_of_first_found_in(tolower(names(.data)), domain = label_names)
+
+    if (is.na(label_idx)) {
+      .data$name <- .data$id
+    } else {
+      names(.data)[label_idx] <- "name"
     }
 
     # find a "group" column, otherwise make one
@@ -58,8 +64,8 @@ as_sankey_data_nodes.data.frame <-
       names(.data)[group_idx] <- "group"
     }
 
-    resort_idxs <- c(id_idx, group_idx, setdiff(seq_along(.data), c(id_idx, group_idx)))
-    .data <- .data[resort_idxs]
+    xtra_cols <- names(.data)[!names(.data) %in% c("id", "name", "group")]
+    .data <- .data[c("id", "name", "group", xtra_cols)]
 
     # convert "id" and "group" columns to character
     .data$id <- as.character(.data$id)
