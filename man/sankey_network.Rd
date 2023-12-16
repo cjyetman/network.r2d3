@@ -4,7 +4,7 @@
 \alias{sankey_network}
 \title{Create an interactive sankey network plot in a htmlwidget}
 \usage{
-sankey_network(data, width = NULL, height = NULL, ..., viewer = "browser")
+sankey_network(data, width = NULL, height = NULL, ..., viewer = "internal")
 }
 \arguments{
 \item{data}{a network description in one of numerous forms (see details)}
