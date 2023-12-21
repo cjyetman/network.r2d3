@@ -1,107 +1,146 @@
-// !preview r2d3 data = jsonlite::toJSON(list(nodes=data.frame(id=c(0,1,2,3,4,5,6),name=c("node0","node1","node2","node3","node4","node5","node6"),group=c("grp1","grp1","grp2","grp2","grp2","grp3","grp3")),links=data.frame(source=c(0,1,1,1,0,2,2,3,5),target=c(2,2,3,5,4,3,4,4,6),value=c(2,2,2,2,2,2,2,4,4)))), dependencies = "inst/lib/d3-sankey/d3-sankey.min.js", d3_version = 6, width = 600, height = 300, options = list(linkStrokeOpacity=0.3,linkMixBlendMode="multiply",linkPath="d3.sankeyLinkHorizontal()",linkColor="source-target",nodeAlign="justify",nodeGroup="group",nodeWidth=15,nodePadding=10,nodeLabelPadding=6,nodeLabelFontFamily="sans-serif",nodeLabelFontSize=10,colors="d3.schemeCategory10"), viewer = "internal"
+// !preview r2d3 data = jsonlite::toJSON(list(links = data.frame(source = c("A", "A"), target = c("B", "C"), value = 10), nodes = data.frame(name = c("A", "B", "C"), group = c("A", "B", "C")))), dependencies = "inst/lib/d3-sankey/d3-sankey.min.js", d3_version = 6, options = list(linkStrokeOpacity=0.3,nodeLabelPadding=6), container = "div", viewer = "internal"
 
-r2d3.onRender(function(data, svg, width, height, options) {
-  let linkStrokeOpacity = options.linkStrokeOpacity;
-  let linkMixBlendMode = options.linkMixBlendMode;
-  let linkPath = eval(options.linkPath);
-  let linkColor = options.linkColor;
-  let nodeAlign = options.nodeAlign;
-  let nodeGroup = options.nodeGroup;
-  let nodeWidth = options.nodeWidth;
-  let nodePadding = options.nodePadding;
-  let nodeLabelPadding = options.nodeLabelPadding;
-  let nodeLabelFontFamily = options.nodeLabelFontFamily;
-  let nodeLabelFontSize = options.nodeLabelFontSize;
-  let colors = eval(options.colors);
+r2d3.onRender(function(data, div, width, height, options) {
 
-  const uid = `O-${Math.random().toString(16).slice(2)}`;
+  const nodeAlign = options.nodeAlign ?? "sankeyJustify";
+  const nodeWidth = options.nodeWidth ?? 24;
+  const nodePadding = options.nodePadding ?? 8;
+  const nodeGroup = options.nodeGroup ?? "group";
+  const colorScheme = options.colorScheme ?? "schemeCategory10";
+  const linkColor = options.linkColor ?? "source-target";
+  const nodeLabelFontFamily = options.nodeLabelFontFamily ?? "sans-serif";
+  const nodeLabelFontSize = options.nodeLabelFontSize ?? 10;
+  const tooltipTransitionDuration = options.tooltipTransitionDuration ?? 200;
+  const tooltipOpacity = options.tooltipOpacity ?? 0.8;
+  const tooltipFontSize = options.tooltipFontSize ?? 12;
+  const tooltipFontFamily = options.tooltipFontFamily ?? "sans-serif";
+  const tooltipBorderRadius = options.tooltipBorderRadius ?? 4;
 
-  nodeAlign = {
-    left: d3.sankeyLeft,
-    right: d3.sankeyRight,
-    center: d3.sankeyCenter
-  }[nodeAlign] ?? d3.sankeyJustify;
+  const color = d3.scaleOrdinal(d3[colorScheme]);
 
-  const formatNumber = d3.format(",.0f");
+  const widgetPadding = 40;
 
-  const color = d3.scaleOrdinal(colors);
+  const format = d3.format(",.0f");
 
-  let sankey = d3.sankey()
-    .nodeId(function id(d) { return d.id; })
+  const svg = div.append("svg")
+    .attr("width", width)
+    .attr("height", height)
+    .attr("viewBox", [0, 0, width, height])
+    .attr("style", "max-width: 100%; height: auto;");
+
+  const sankey = d3.sankey()
+    .nodeId(d => d.name)
+    .nodeAlign(d3[nodeAlign])
     .nodeWidth(nodeWidth)
-    .nodeAlign(nodeAlign)
     .nodePadding(nodePadding)
-    .size([width, height])
-    ;
+    .extent([[1, 5], [width - 1, height - 5]]);
 
-  let sankeydata = sankey(data);
-  let links = sankeydata.links;
-  let nodes = sankeydata.nodes;
+  const {nodes, links} = sankey({
+    nodes: data.nodes.map(d => Object.assign({}, d)),
+    links: data.links.map(d => Object.assign({}, d))
+  });
 
-  // add in the links
-  const link_slct = svg
-    .append("g")
-    .attr("fill", "none")
-    .attr("stroke-opacity", linkStrokeOpacity)
-    .selectAll("g")
-    .data(links)
-    .join("g")
-    .style("mix-blend-mode", linkMixBlendMode)
-    ;
+  // add tooltip div
+  const tooltip_div = div.append("div")
+    .attr("class", "tooltip")
+    .style("opacity", 0)
+    .style("position", "absolute")
+    .style("text-align", "center")
+    .style("padding", "10px")
+    .style("font-size", tooltipFontSize + "px")
+    .style("font-family", tooltipFontFamily)
+    .style("background-color", "white")
+    .style("color", "black")
+    .style("border", "1px solid")
+    .style("border-radius", tooltipBorderRadius + "px")
+    .style("pointer-events", "none");
 
-  if (linkColor === "source-target") {
-    link_slct.append("linearGradient")
-      .attr("id", d => `${uid}-link-${d.index}`)
-      .attr("gradientUnits", "userSpaceOnUse")
-      .attr("x1", d => d.source.x1)
-      .attr("x2", d => d.target.x0)
-      .call(gradient => gradient.append("stop")
-        .attr("offset", "0%")
-        .attr("stop-color", d => color(d.source[nodeGroup]))
-      )
-      .call(gradient => gradient.append("stop")
-        .attr("offset", "100%")
-        .attr("stop-color", d => color(d.target[nodeGroup]))
-      )
-      ;
+  function mouseover(event, d) {
+    let tooltip_text = "";
+    if (d.name === undefined) {
+      tooltip_text = d.source.name + " → " + d.target.name + "<br/>" + format(d.value);
+    } else {
+      tooltip_text = d.name + "<br/>" + format(d.value);
+    }
+    tooltip_div.transition()
+      .duration(tooltipTransitionDuration)
+      .style("opacity", tooltipOpacity);
+    tooltip_div.html(tooltip_text)
+      .style("left", event.pageX + "px")
+      .style("top", (event.pageY - widgetPadding) + "px");
   }
 
-  link_slct.append("path")
-    .attr("d", linkPath)
-    .attr("stroke", linkColor === "source-target" ? d => `url(#${uid}-link-${d.index})`
-      : linkColor === "source" ? d => color(d.source[nodeGroup])
-      : linkColor === "target" ? d => color(d.target[nodeGroup])
-      : linkColor)
-    .attr("stroke-width", ({width}) => Math.max(1, width))
-    .append("title")
-    .text(d => d.source.name + " → " + d.target.name + "\n" + formatNumber(d.value))
-    ;
+  function mousemove(event) {
+    tooltip_div
+      .style("left", event.pageX + "px")
+      .style("top", (event.pageY - widgetPadding) + "px");
+  }
 
-  const node_slct = svg.append("g")
-    .selectAll(".node")
+  function mouseout() {
+    tooltip_div.transition()
+      .duration(tooltipTransitionDuration)
+      .style("opacity", 0);
+  }
+
+  // build nodes
+  svg.append("g")
+      .attr("stroke", "#000")
+    .selectAll()
     .data(nodes)
     .join("rect")
-    .attr("class", "node")
-    .attr("x", d => d.x0)
-    .attr("y", d => d.y0)
-    .attr("height", d => d.y1 - d.y0)
-    .attr("width", sankey.nodeWidth())
-    .style("fill", d => d.color = color(d[nodeGroup]))
-    .style("stroke", d => d3.rgb(d.color).darker(2))
-    ;
+      .attr("x", d => d.x0)
+      .attr("y", d => d.y0)
+      .attr("height", d => d.y1 - d.y0)
+      .attr("width", d => d.x1 - d.x0)
+      .attr("fill", d => color(d[nodeGroup]))
+      .on("mouseover", mouseover)
+      .on("mousemove", mousemove)
+      .on("mouseout", mouseout);
 
-  node_slct.append("title").text(d => d.name + "\n" + formatNumber(d.value));
-
-  const nodeLabel_slct = svg.append("g")
-    .attr("font-family", nodeLabelFontFamily)
-    .attr("font-size", nodeLabelFontSize)
-    .selectAll("text")
+  svg.append("g")
+    .selectAll()
     .data(nodes)
     .join("text")
-    .attr("x", d => d.x0 < width / 2 ? d.x1 + nodeLabelPadding : d.x0 - nodeLabelPadding)
-    .attr("y", d => (d.y1 + d.y0) / 2)
-    .attr("dy", "0.35em")
-    .attr("text-anchor", d => d.x0 < width / 2 ? "start" : "end")
-    .text(d => d.name)
-    ;
+      .attr("x", d => d.x0 < width / 2 ? d.x1 + 6 : d.x0 - 6)
+      .attr("y", d => (d.y1 + d.y0) / 2)
+      .attr("dy", "0.35em")
+      .attr("text-anchor", d => d.x0 < width / 2 ? "start" : "end")
+      .text(d => d.name)
+      .style("font-size", nodeLabelFontSize + "px")
+      .style("font-family", nodeLabelFontFamily);
+
+  // build links
+  const link = svg.append("g")
+      .attr("fill", "none")
+      .attr("stroke-opacity", 0.5)
+    .selectAll()
+    .data(links)
+    .join("g")
+      .style("mix-blend-mode", "multiply");
+
+  if (linkColor === "source-target") {
+    const gradient = link.append("linearGradient")
+        .attr("id", (d, i) => (d.uid = `link-${i}`))
+        .attr("gradientUnits", "userSpaceOnUse")
+        .attr("x1", d => d.source.x1)
+        .attr("x2", d => d.target.x0);
+    gradient.append("stop")
+        .attr("offset", "0%")
+        .attr("stop-color", d => color(d.source[nodeGroup]));
+    gradient.append("stop")
+        .attr("offset", "100%")
+        .attr("stop-color", d => color(d.target[nodeGroup]));
+  }
+
+  link.append("path")
+    .attr("d", d3.sankeyLinkHorizontal())
+    .attr("stroke", linkColor === "source-target" ? (d) => `url(#${d.uid})`
+        : linkColor === "source" ? (d) => color(d.source[nodeGroup])
+        : linkColor === "target" ? (d) => color(d.target[nodeGroup])
+        : linkColor)
+    .attr("stroke-width", d => Math.max(1, d.width))
+    .on("mouseover", mouseover)
+    .on("mousemove", mousemove)
+    .on("mouseout", mouseout);
+
 });
