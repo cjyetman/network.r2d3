@@ -22,20 +22,7 @@ sankey_network <- function(data, width = NULL, height = NULL, ..., viewer = "int
                            UTC = TRUE, rownames = FALSE, keep_vec_names = TRUE,
                            json_verabitm = TRUE)
 
-  options <- list(
-    linkStrokeOpacity = ifelse(methods::hasArg("linkStrokeOpacity"), list(...)$linkStrokeOpacity, 0.3),
-    linkMixBlendMode = ifelse(methods::hasArg("linkMixBlendMode"), list(...)$linkMixBlendMode, "multiply"),
-    linkPath = ifelse(methods::hasArg("linkPath"), list(...)$linkPath, "d3.sankeyLinkHorizontal()"),
-    linkColor = ifelse(methods::hasArg("linkColor"), list(...)$linkColor, "source-target"),
-    nodeAlign = ifelse(methods::hasArg("nodeAlign"), list(...)$nodeAlign, "justify"),
-    nodeGroup = ifelse(methods::hasArg("nodeGroup"), list(...)$nodeGroup, "group"),
-    nodeWidth = ifelse(methods::hasArg("nodeWidth"), list(...)$nodeWidth, 15),
-    nodePadding = ifelse(methods::hasArg("nodePadding"), list(...)$nodePadding, 10),
-    nodeLabelPadding = ifelse(methods::hasArg("nodeLabelPadding"), list(...)$nodeLabelPadding, 6),
-    nodeLabelFontFamily = ifelse(methods::hasArg("nodeLabelFontFamily"), list(...)$nodeLabelFontFamily, "sans-serif"),
-    nodeLabelFontSize = ifelse(methods::hasArg("nodeLabelFontSize"), list(...)$nodeLabelFontSize, 10),
-    colors = ifelse(methods::hasArg("color"), list(...)$color, "d3.schemeCategory10")
-  )
+  options <- list(...)
 
   r2d3::r2d3(
     data = data,
@@ -43,7 +30,7 @@ sankey_network <- function(data, width = NULL, height = NULL, ..., viewer = "int
     script = system.file("sankey_network.js", package = "network.r2d3"),
     dependencies = system.file("lib/d3-sankey/d3-sankey.min.js", package = "network.r2d3"),
     d3_version = 6,
-    container = "svg",
+    container = "div",
     width = width,
     height = height,
     viewer = viewer
