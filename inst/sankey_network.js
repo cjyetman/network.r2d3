@@ -1,7 +1,9 @@
-// !preview r2d3 data = jsonlite::toJSON(list(links = data.frame(source = c("A", "A"), target = c("B", "C"), value = 10), nodes = data.frame(name = c("A", "B", "C"), group = c("A", "B", "C")))), dependencies = "inst/lib/d3-sankey/d3-sankey.min.js", d3_version = 6, options = list(linkStrokeOpacity=0.3,nodeLabelPadding=6), container = "div", viewer = "internal"
+// !preview r2d3 data = jsonlite::toJSON(list(links = data.frame(source = c("A", "A"), target = c("B", "C"), value = c(10,5)), nodes = data.frame(id = c("A", "B", "C"), group = c("A", "B", "C")))), dependencies = "inst/lib/d3-sankey/d3-sankey.min.js", d3_version = 6, options = list(nodeLabel = "id", linkStrokeOpacity = 0.3, nodeLabelPadding = 6), container = "div", viewer = "internal"
 
 r2d3.onRender(function(data, div, width, height, options) {
 
+  const nodeId = options.nodeId ?? "id";
+  const nodeLabel = options.nodeLabel ?? "name";
   const nodeAlign = options.nodeAlign ?? "sankeyJustify";
   const nodeWidth = options.nodeWidth ?? 24;
   const nodePadding = options.nodePadding ?? 8;
@@ -29,7 +31,7 @@ r2d3.onRender(function(data, div, width, height, options) {
     .attr("style", "max-width: 100%; height: auto;");
 
   const sankey = d3.sankey()
-    .nodeId(d => d.name)
+    .nodeId(d => d[nodeId])
     .nodeAlign(d3[nodeAlign])
     .nodeWidth(nodeWidth)
     .nodePadding(nodePadding)
@@ -57,10 +59,10 @@ r2d3.onRender(function(data, div, width, height, options) {
 
   function mouseover(event, d) {
     let tooltip_text = "";
-    if (d.name === undefined) {
-      tooltip_text = d.source.name + " → " + d.target.name + "<br/>" + format(d.value);
+    if (d.sourceLinks === undefined) {
+      tooltip_text = d.source[nodeLabel] + " → " + d.target[nodeLabel] + "<br/>" + format(d.value);
     } else {
-      tooltip_text = d.name + "<br/>" + format(d.value);
+      tooltip_text = d[nodeLabel] + "<br/>" + format(d.value);
     }
     tooltip_div.transition()
       .duration(tooltipTransitionDuration)
@@ -105,7 +107,7 @@ r2d3.onRender(function(data, div, width, height, options) {
       .attr("y", d => (d.y1 + d.y0) / 2)
       .attr("dy", "0.35em")
       .attr("text-anchor", d => d.x0 < width / 2 ? "start" : "end")
-      .text(d => d.name)
+      .text(d => d[nodeLabel])
       .style("font-size", nodeLabelFontSize + "px")
       .style("font-family", nodeLabelFontFamily);
 
