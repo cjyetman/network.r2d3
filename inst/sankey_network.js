@@ -1,5 +1,16 @@
 // !preview r2d3 data = jsonlite::toJSON(list(links = data.frame(source = c("A", "A"), target = c("B", "C"), value = c(10,5)), nodes = data.frame(id = c("A", "B", "C"), group = c("A", "B", "C")))), dependencies = "inst/lib/d3-sankey/d3-sankey.min.js", d3_version = 6, options = list(nodeLabel = "id", linkStrokeOpacity = 0.3, nodeLabelPadding = 6), container = "div", viewer = "internal"
 
+div.append("svg");
+const tooltip_div = div.append("div");
+
+const svg = div.select("svg")
+  .attr("width", width)
+  .attr("height", height)
+  .attr("viewBox", [0, 0, width, height])
+  .attr("style", "max-width: 100%; height: auto;");
+
+const sankey = d3.sankey();
+
 r2d3.onRender(function(data, div, width, height, options) {
 
   const nodeId = options.nodeId ?? "id";
@@ -28,13 +39,9 @@ r2d3.onRender(function(data, div, width, height, options) {
 
   const format = d3.format(",.0f");
 
-  const svg = div.append("svg")
-    .attr("width", width)
-    .attr("height", height)
-    .attr("viewBox", [0, 0, width, height])
-    .attr("style", "max-width: 100%; height: auto;");
+  svg.selectAll("g").remove();
 
-  const sankey = d3.sankey()
+  sankey
     .nodeId(d => d[nodeId])
     .nodeAlign(d3[nodeAlign])
     .nodeWidth(nodeWidth)
@@ -50,7 +57,7 @@ r2d3.onRender(function(data, div, width, height, options) {
   });
 
   // add tooltip div
-  const tooltip_div = div.append("div")
+  tooltip_div
     .attr("class", "tooltip")
     .style("opacity", 0)
     .style("position", "absolute")
