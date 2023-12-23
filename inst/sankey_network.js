@@ -32,6 +32,8 @@ r2d3.onRender(function(data, div, width, height, options) {
   const tooltipFontSize = options.tooltipFontSize ?? 12;
   const tooltipFontFamily = options.tooltipFontFamily ?? "sans-serif";
   const tooltipBorderRadius = options.tooltipBorderRadius ?? 4;
+  const tooltipNodeText = options.tooltipNodeText ?? 'd[nodeLabel] + "<br/>" + format(d.value)';
+  const tooltipLinkText = options.tooltipLinkText ?? 'd.source[nodeLabel] + " → " + d.target[nodeLabel] + "<br/>" + format(d.value)';
 
   const color = d3.scaleOrdinal(d3[colorScheme]);
 
@@ -74,9 +76,9 @@ r2d3.onRender(function(data, div, width, height, options) {
   function mouseover(event, d) {
     let tooltip_text = "";
     if (d.sourceLinks === undefined) {
-      tooltip_text = d.source[nodeLabel] + " → " + d.target[nodeLabel] + "<br/>" + format(d.value);
+      tooltip_text = eval(tooltipLinkText);
     } else {
-      tooltip_text = d[nodeLabel] + "<br/>" + format(d.value);
+      tooltip_text = eval(tooltipNodeText);
     }
     tooltip_div.transition()
       .duration(tooltipTransitionDuration)
