@@ -8,8 +8,11 @@ r2d3.onRender(function(data, div, width, height, options) {
   const nodeWidth = options.nodeWidth ?? 24;
   const nodePadding = options.nodePadding ?? 8;
   const nodeGroup = options.nodeGroup ?? "group";
+  const nodeSort = options.nodeSort ?? undefined;
+  const iterations = options.iterations ?? 6;
   const colorScheme = options.colorScheme ?? "schemeCategory10";
   const linkColor = options.linkColor ?? "source-target";
+  const linkSort = options.linkSort ?? undefined;
   const nodeLabelFontFamily = options.nodeLabelFontFamily ?? "sans-serif";
   const nodeLabelFontSize = options.nodeLabelFontSize ?? 10;
   const tooltipTransitionDuration = options.tooltipTransitionDuration ?? 200;
@@ -35,7 +38,10 @@ r2d3.onRender(function(data, div, width, height, options) {
     .nodeAlign(d3[nodeAlign])
     .nodeWidth(nodeWidth)
     .nodePadding(nodePadding)
-    .extent([[1, 5], [width - 1, height - 5]]);
+    .extent([[1, 5], [width - 1, height - 5]])
+    .linkSort(eval(linkSort))
+    .nodeSort(eval(nodeSort))
+    .iterations(iterations);
 
   const {nodes, links} = sankey({
     nodes: data.nodes.map(d => Object.assign({}, d)),
