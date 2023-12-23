@@ -13,6 +13,7 @@ r2d3.onRender(function(data, div, width, height, options) {
   const colorScheme = options.colorScheme ?? "schemeCategory10";
   const linkColor = options.linkColor ?? "source-target";
   const linkSort = options.linkSort ?? undefined;
+  const linkPath = options.linkPath ?? "path";
   const nodeLabelFontFamily = options.nodeLabelFontFamily ?? "sans-serif";
   const nodeLabelFontSize = options.nodeLabelFontSize ?? 10;
   const tooltipTransitionDuration = options.tooltipTransitionDuration ?? 200;
@@ -145,6 +146,7 @@ r2d3.onRender(function(data, div, width, height, options) {
     .attr("stroke", linkColor === "source-target" ? (d) => `url(#${d.uid})`
         : linkColor === "source" ? (d) => color(d.source[nodeGroup])
         : linkColor === "target" ? (d) => color(d.target[nodeGroup])
+        : linkColor === "path" ? (d) => color(d[linkPath])
         : linkColor)
     .attr("stroke-width", d => Math.max(1, d.width))
     .on("mouseover", mouseover)
