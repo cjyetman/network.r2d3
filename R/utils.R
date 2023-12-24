@@ -9,7 +9,7 @@ add_tbl_class <-
 
 
 first_found_in <-
-  function(.x, domain, default = NA) {
+  function(.x, domain, default = NA_character_) {
     .out <- domain[domain %in% .x][1L]
     if (is.na(.out)) { .out <- default }
     .out
@@ -18,9 +18,9 @@ first_found_in <-
 
 index_of_first_found_in <-
   function(.x, domain, default = NA_integer_) {
-    .out <- which(.x %in% domain)[1L]
-    if (is.na(.out)) { .out <- default }
-    .out
+    .out <- first_found_in(.x, domain)
+    if (is.na(.out)) { return(default) }
+    which(.x == .out)
   }
 
 
