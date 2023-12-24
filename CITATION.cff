@@ -44,17 +44,6 @@ references:
   year: '2023'
   version: '>= 0.9.6'
 - type: software
-  title: methods
-  abstract: 'R: A Language and Environment for Statistical Computing'
-  notes: Imports
-  authors:
-  - name: R Core Team
-  location:
-    name: Vienna, Austria
-  year: '2023'
-  institution:
-    name: R Foundation for Statistical Computing
-- type: software
   title: r2d3
   abstract: 'r2d3: Interface to ''D3'' Visualizations'
   notes: Imports
