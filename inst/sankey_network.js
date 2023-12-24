@@ -1,4 +1,4 @@
-// !preview r2d3 data = jsonlite::toJSON(list(links = data.frame(source = c("A", "A"), target = c("B", "C"), value = c(10,5)), nodes = data.frame(id = c("A", "B", "C"), group = c("A", "B", "C")))), dependencies = "inst/lib/d3-sankey/d3-sankey.min.js", d3_version = 6, options = list(nodeLabel = "id", linkStrokeOpacity = 0.3, nodeLabelPadding = 6), container = "div", viewer = "internal"
+// !preview r2d3 data = jsonlite::toJSON(list(links = data.frame(source = c("A", "A"), target = c("B", "C"), value = c(10,5)), nodes = data.frame(id = c("A", "B", "C"), group = c("A", "B", "C")))), dependencies = "inst/lib/d3-sankey/d3-sankey.min.js", d3_version = 6, options = list(linkStrokeOpacity = 0.3, nodeLabelPadding = 6), container = "div", viewer = "internal"
 
 div.append("svg");
 const tooltip_div = div.append("div");
@@ -14,7 +14,7 @@ const sankey = d3.sankey();
 r2d3.onRender(function(data, div, width, height, options) {
 
   const nodeId = options.nodeId ?? "id";
-  const nodeLabel = options.nodeLabel ?? "name";
+  const nodeLabel = options.nodeLabel ?? "id";
   const nodeAlign = options.nodeAlign ?? "sankeyJustify";
   const nodeWidth = options.nodeWidth ?? 24;
   const nodePadding = options.nodePadding ?? 8;
