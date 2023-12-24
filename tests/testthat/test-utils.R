@@ -25,3 +25,37 @@ test_that("format_force_data_link_data_frame() works as expected", {
   expect_type(result[[1L]], "character")
   expect_type(result[[2L]], "character")
 })
+
+test_that("first_found_in() works as expected", {
+  # same order
+  .x <- c("A", "B", "C")
+  domain <- c("A", "C")
+  expect_equal(first_found_in(.x, domain), "A")
+
+  # out of order
+  .x <- c("A", "B", "C")
+  domain <- c("B", "A")
+  expect_equal(first_found_in(.x, domain), "B")
+
+  # `NA` if none found
+  .x <- c("a", "b")
+  domain <- c("source", "from", "sources", "start", "begin")
+  expect_equal(first_found_in(.x, domain), NA_character_)
+})
+
+test_that("index_of_first_found_in() works as expected", {
+  # same order
+  .x <- c("A", "B", "C")
+  domain <- c("A", "C")
+  expect_equal(index_of_first_found_in(.x, domain), 1L)
+
+  # out of order
+  .x <- c("A", "B", "C")
+  domain <- c("B", "A")
+  expect_equal(index_of_first_found_in(.x, domain), 2L)
+
+  # `NA` if none found
+  .x <- c("a", "b")
+  domain <- c("source", "from", "sources", "start", "begin")
+  expect_equal(index_of_first_found_in(.x, domain), NA_integer_)
+})
