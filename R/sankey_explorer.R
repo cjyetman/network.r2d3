@@ -1,3 +1,14 @@
+#' Interactive `sankey_network` options explorer
+#'
+#' @param data a network description in one of numerous forms (see details)
+#'
+#' @description
+#' An interactive shiny widget to explore the `sankey_network` options.
+#'
+#' @md
+#'
+#' @export
+
 sankey_explorer <- function(data) {
   if (!requireNamespace("shiny", quietly = TRUE)) {
     stop("You must have {shiny} installed to use `sankey_explorer()`")
