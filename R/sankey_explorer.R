@@ -3,6 +3,7 @@ sankey_explorer <- function(data) {
     stop("You must have {shiny} installed to use `sankey_explorer()`")
   }
 
+  obj_name <- deparse(substitute(data))
   data <- as_sankey_data(data)
 
   ui <- shiny::fluidPage(
@@ -70,7 +71,9 @@ sankey_explorer <- function(data) {
         label = "tooltipLinkText:",
         value = 'd.source[nodeLabel] + " \u2192 " + d.target[nodeLabel] + "<br/>" + format(d.value)',
         placeholder = '(default) "d.source[nodeLabel] + " \u2192 " + d.target[nodeLabel] + "<br/>" + format(d.value)"'
-      )
+      ),
+      shiny::downloadButton("download_svg", "save SVG"),
+      shiny::downloadButton("download_png", "save PNG")
     ),
     r2d3::d3Output("d3")
   )
@@ -92,6 +95,52 @@ sankey_explorer <- function(data) {
         tooltipLinkText = input$tooltipLinkText
       )
     })
+
+    output$download_svg <- shiny::downloadHandler(
+      filename = function() {
+        paste0(obj_name, ".svg")
+      },
+      content = function(file) {
+        sn <- sankey_network(
+          data = data,
+          nodeId = input$nodeId,
+          nodeGroup = input$nodeGroup,
+          nodeLabel = input$nodeLabel,
+          nodeLabelFontFamily = input$nodeLabelFontFamily,
+          nodeLabelFontSize = input$nodeLabelFontSize,
+          linkPath = input$linkPath,
+          linkColor = input$linkColor,
+          colorScheme = input$colorScheme,
+          iterations = input$iterations,
+          nodeAlign = input$nodeAlign,
+          tooltipLinkText = input$tooltipLinkText
+        )
+        save_as_svg(sn, file)
+      }
+    )
+
+    output$download_png <- shiny::downloadHandler(
+      filename = function() {
+        paste0(obj_name, ".png")
+      },
+      content = function(file) {
+        sn <- sankey_network(
+          data = data,
+          nodeId = input$nodeId,
+          nodeGroup = input$nodeGroup,
+          nodeLabel = input$nodeLabel,
+          nodeLabelFontFamily = input$nodeLabelFontFamily,
+          nodeLabelFontSize = input$nodeLabelFontSize,
+          linkPath = input$linkPath,
+          linkColor = input$linkColor,
+          colorScheme = input$colorScheme,
+          iterations = input$iterations,
+          nodeAlign = input$nodeAlign,
+          tooltipLinkText = input$tooltipLinkText
+        )
+        save_as_png(sn, file)
+      }
+    )
   }
 
   shiny::shinyApp(ui = ui, server = server)
