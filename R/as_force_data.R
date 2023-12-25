@@ -8,6 +8,7 @@
 #' The `force_network` function uses a 'native' data format that consists of a...
 #'
 #' @md
+#'
 #' @export
 
 as_force_data <- function(.data, ...) {
@@ -15,7 +16,9 @@ as_force_data <- function(.data, ...) {
 }
 
 
-#' @describeIn as_force_data
+#' @describeIn as_force_data Convert data found at a URL to an appropriate
+#'   network data list
+#'
 #' @export
 
 as_force_data.character <- function(.data, ...) {
@@ -27,7 +30,9 @@ as_force_data.character <- function(.data, ...) {
 }
 
 
-#' @describeIn as_force_data
+#' @describeIn as_force_data Convert a data frame containing links data to an
+#'   appropriate network data list
+#'
 #' @export
 
 as_force_data.data.frame <-
@@ -42,7 +47,9 @@ as_force_data.data.frame <-
   }
 
 
-#' @describeIn as_force_data
+#' @describeIn as_force_data Convert an igraph object to an appropriate network
+#'   data list
+#'
 #' @export
 
 as_force_data.igraph <-
@@ -70,7 +77,9 @@ as_force_data.igraph <-
   }
 
 
-#' @describeIn as_force_data
+#' @describeIn as_force_data Convert a hclust object to an appropriate network
+#'   data list
+#'
 #' @export
 
 as_force_data.hclust <-
@@ -103,7 +112,9 @@ as_force_data.hclust <-
   }
 
 
-#' @describeIn as_force_data
+#' @describeIn as_force_data Convert a dendrogram object to an appropriate network
+#'   data list
+#'
 #' @export
 
 as_force_data.dendrogram <-
@@ -115,7 +126,9 @@ as_force_data.dendrogram <-
   }
 
 
-#' @describeIn as_force_data
+#' @describeIn as_force_data Convert a list object containg a links and a nodes
+#'   data frame to an appropriate network data list
+#'
 #' @export
 
 as_force_data.list <-

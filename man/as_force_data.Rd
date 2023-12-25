@@ -2,9 +2,27 @@
 % Please edit documentation in R/as_force_data.R
 \name{as_force_data}
 \alias{as_force_data}
+\alias{as_force_data.character}
+\alias{as_force_data.data.frame}
+\alias{as_force_data.igraph}
+\alias{as_force_data.hclust}
+\alias{as_force_data.dendrogram}
+\alias{as_force_data.list}
 \title{Convert one of numerous data types to force_network's 'native' data format}
 \usage{
 as_force_data(.data, ...)
+
+\method{as_force_data}{character}(.data, ...)
+
+\method{as_force_data}{data.frame}(.data, ...)
+
+\method{as_force_data}{igraph}(.data, ...)
+
+\method{as_force_data}{hclust}(.data, ...)
+
+\method{as_force_data}{dendrogram}(.data, ...)
+
+\method{as_force_data}{list}(.data, ...)
 }
 \arguments{
 \item{.data}{a force network description in one of numerous forms (see
@@ -15,3 +33,24 @@ details).}
 \description{
 The \code{force_network} function uses a 'native' data format that consists of a...
 }
+\section{Methods (by class)}{
+\itemize{
+\item \code{as_force_data(character)}: Convert data found at a URL to an appropriate
+network data list
+
+\item \code{as_force_data(data.frame)}: Convert a data frame containing links data to an
+appropriate network data list
+
+\item \code{as_force_data(igraph)}: Convert an igraph object to an appropriate network
+data list
+
+\item \code{as_force_data(hclust)}: Convert a hclust object to an appropriate network
+data list
+
+\item \code{as_force_data(dendrogram)}: Convert a dendrogram object to an appropriate network
+data list
+
+\item \code{as_force_data(list)}: Convert a list object containg a links and a nodes
+data frame to an appropriate network data list
+
+}}
