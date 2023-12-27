@@ -69,7 +69,7 @@ tree_network <- function(data, width = NULL, height = NULL, treeType = 'tidy',
   r2d3::r2d3(
     data = data,
     options = options,
-    script = system.file("d3/tree_network.js", package = "network.r2d3"),
+    script = system.file("tree_network.js", package = "network.r2d3"),
     d3_version = 4,
     width = width,
     height = height,

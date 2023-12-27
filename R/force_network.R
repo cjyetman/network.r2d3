@@ -25,7 +25,7 @@ force_network <- function(data, width = NULL, height = NULL, ..., viewer = "inte
   r2d3::r2d3(
     data = data,
     options = list(...),
-    script = system.file("d3/force_network.js", package = "network.r2d3"),
+    script = system.file("force_network.js", package = "network.r2d3"),
     d3_version = 4,
     container = "canvas",
     width = width,
