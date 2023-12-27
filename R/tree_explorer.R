@@ -44,7 +44,7 @@ tree_explorer <- function(data) {
       shiny::selectInput(
         inputId = "direction",
         label = "direction:",
-        choices = c(`right [default]` = "right", "left", "down", "up"),
+        choices = c(`right [default]` = "right", "left", "down", "up", "radial"),
         selected = "right [default]"
       ),
       shiny::selectInput(
@@ -76,8 +76,8 @@ tree_explorer <- function(data) {
       shiny::selectInput(
         inputId = "nodeSymbol",
         label = "nodeSymbol:",
-        choices = c(`circle [default]` = "circle", "square", "star"),
-        selected = "circle"
+        choices = c(`Circle [default]` = "Circle", "Cross", "Diamond", "Square", "Star", "Triangle", "Wye"),
+        selected = "Circle"
       ),
       shiny::textInput(
         inputId = "nodeFont",
@@ -139,8 +139,9 @@ tree_explorer <- function(data) {
         nodeSize = input$nodeSize,
         nodeStroke = input$nodeStroke,
         nodeColor = input$nodeColor,
-        nodeSymobl = input$nodeSymobl,
+        nodeSymbol = input$nodeSymbol,
         nodeFont = input$nodeFont,
+        nodeFontSize = input$nodeFontSize,
         textColor = input$textColor,
         textOpacity = input$textOpacity,
         linkColor = input$linkColor,
