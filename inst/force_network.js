@@ -1,7 +1,4 @@
-// !preview r2d3 data = jsonlite::read_json('test_data/marvel3.json'), d3_version = 4, container = "canvas", options = list()
-
-// https://bl.ocks.org/mbostock/ad70335eeef6d167bc36fd3c04378048
-// https://bl.ocks.org/mbostock/b418a040bb28295e4a78581fe8e269d1
+// !preview r2d3 data = jsonlite::toJSON(jsonlite::fromJSON("test_data/miserables.json")), d3_version = 5, container = "canvas", options = list(draw_arrows = TRUE)
 
 var node_color = eval(options.node_color) || d3.scaleOrdinal(d3.schemeCategory10),
     node_size = options.node_size || 4,
@@ -14,6 +11,8 @@ var node_color = eval(options.node_color) || d3.scaleOrdinal(d3.schemeCategory10
     arrow_length = options.arrow_length || 10,
     zoom_scale = options.zoom_scale || 0.5,
     plot_static = options.plot_static || false == 1 ? true : false;
+    shadow_color = options.shadow_color ?? "transparent";
+    font = options.font ?? "14px Arial";
 
 var canvas_node = canvas.node(),
     context = canvas_node.getContext("2d"),
@@ -21,7 +20,7 @@ var canvas_node = canvas.node(),
     height = canvas_node.height;
 
 var simulation = d3.forceSimulation(data.nodes)
-    .force("link", d3.forceLink(data.links).id(function(d) { return d.id; }))
+    .force("link", d3.forceLink(data.links).id(d => d.id))
     .force("charge", d3.forceManyBody().strength(strength).distanceMin(distanceMin).distanceMax(distanceMax))
     .force("center", d3.forceCenter(width / 2, height / 2));
 
@@ -37,8 +36,6 @@ if (plot_static) {
   simulation.on("tick", ticked);
 }
 
-
-/*
 d3.select(canvas_node)
     .call(d3.drag()
         .container(canvas_node)
@@ -46,7 +43,6 @@ d3.select(canvas_node)
         .on("start", dragstarted)
         .on("drag", dragged)
         .on("end", dragended));
-*/
 
 // zoom
 d3.select(canvas_node)
@@ -67,15 +63,13 @@ function ticked(transform) {
 
   // draw links
   context.beginPath();
-  data.links.forEach(function(d) { drawLink(d, transform); });
+  data.links.forEach(d => drawLink(d, transform));
   context.strokeStyle = link_color;
   context.stroke();
 
   // draw arrows
   if(draw_arrows){
-      data.links.forEach(function(d) {
-        drawArrowHead(arrowHeadPoints(d, transform));
-      });
+      data.links.forEach(d => drawArrowHead(arrowHeadPoints(d, transform)));
   }
 
   // draw nodes
@@ -104,18 +98,15 @@ function ticked(transform) {
       d_node_size = node_size;
     }
 
-    var fontfillsize = 24;
-
-    context.font = fontfillsize + "px Arial";
+    context.font = font;
     context.fillStyle = d_color;
     context.strokeStyle = "white";
     context.strokeText(d.id, dx, dy);
-    context.shadowColor = "rgba(0,0,0,0.9)";
+    context.shadowColor = shadow_color;
     context.shadowOffsetX = 2;
     context.shadowOffsetY = 2;
     context.shadowBlur = 6;
     context.fillText(d.id, dx, dy);
-    context.shadowColor = "transparent";
   });
 }
 

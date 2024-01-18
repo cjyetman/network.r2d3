@@ -22,7 +22,7 @@ force_explorer <- function(data) {
       shiny::numericInput(
         inputId = "width",
         label = "width:",
-        value = NULL,
+        value = 952,
         min = 1,
         max = 952,
         step = 1
@@ -30,9 +30,9 @@ force_explorer <- function(data) {
       shiny::numericInput(
         inputId = "height",
         label = "height:",
-        value = NULL,
+        value = 500,
         min = 1,
-        max = 5000,
+        max = 500,
         step = 1
       ),
       shiny::numericInput(
@@ -50,6 +50,18 @@ force_explorer <- function(data) {
         min = -500,
         max = 80,
         step = 1
+      ),
+      shiny::textInput(
+        inputId = "font",
+        label = "font:",
+        value = "14px Arial",
+        placeholder = "CSS font specification"
+      ),
+      shiny::textInput(
+        inputId = "shadow_color",
+        label = "shadow_color:",
+        value = "transparent",
+        placeholder = '"transparent" [default]'
       ),
       shiny::numericInput(
         inputId = "distanceMin",
@@ -100,7 +112,7 @@ force_explorer <- function(data) {
       ),
       shiny::downloadButton("download_png", "save PNG")
     ),
-    r2d3::d3Output("d3")
+    r2d3::d3Output("d3", height = "100vh")
   )
 
   server <- function(input, output) {
@@ -117,7 +129,9 @@ force_explorer <- function(data) {
         solid_arrows = input$solid_arrows,
         arrow_length = input$arrow_length,
         zoom_scale = input$zoom_scale,
-        plot_static = input$plot_static
+        plot_static = input$plot_static,
+        font = input$font,
+        shadow_color = input$shadow_color
       )
     })
 
@@ -126,7 +140,6 @@ force_explorer <- function(data) {
         paste0(obj_name, ".png")
       },
       content = function(file) {
-        warning(input$width)
         plot <- force_network(
           data = data,
           width = input$width,
@@ -139,7 +152,9 @@ force_explorer <- function(data) {
           solid_arrows = input$solid_arrows,
           arrow_length = input$arrow_length,
           zoom_scale = input$zoom_scale,
-          plot_static = input$plot_static
+          plot_static = input$plot_static,
+          font = input$font,
+          shadow_color = input$shadow_color
         )
         save_as_png(plot, file)
       }
