@@ -41,7 +41,7 @@ references:
     given-names: Jeroen
     email: jeroen@berkeley.edu
     orcid: https://orcid.org/0000-0002-4035-0289
-  year: '2023'
+  year: '2024'
   version: '>= 0.9.6'
 - type: software
   title: r2d3
@@ -58,7 +58,7 @@ references:
     email: jluraschi@gmail.com
   - family-names: Allaire
     given-names: JJ
-  year: '2023'
+  year: '2024'
 - type: software
   title: ape
   abstract: 'ape: Analyses of Phylogenetics and Evolution'
@@ -152,7 +152,7 @@ references:
   - family-names: de Vienne
     given-names: Damien
     orcid: https://orcid.org/0000-0001-9532-5251
-  year: '2023'
+  year: '2024'
 - type: software
   title: chromote
   abstract: 'chromote: Headless Chrome Web Browser Interface'
@@ -167,7 +167,7 @@ references:
     given-names: Barret
     email: barret@posit.co
     orcid: https://orcid.org/0000-0001-9986-114X
-  year: '2023'
+  year: '2024'
 - type: software
   title: codemetar
   abstract: 'codemetar: Generate ''CodeMeta'' Metadata for R Packages'
@@ -182,7 +182,7 @@ references:
   - family-names: Salmon
     given-names: Maëlle
     orcid: https://orcid.org/0000-0002-2815-0399
-  year: '2023'
+  year: '2024'
 - type: software
   title: covr
   abstract: 'covr: Test Coverage for Packages'
@@ -193,7 +193,7 @@ references:
   - family-names: Hester
     given-names: Jim
     email: james.f.hester@gmail.com
-  year: '2023'
+  year: '2024'
 - type: software
   title: cffr
   abstract: 'cffr: Generate Citation File Format (''cff'') Metadata for R Packages'
@@ -205,7 +205,7 @@ references:
     given-names: Diego
     email: diego.hernangomezherrero@gmail.com
     orcid: https://orcid.org/0000-0001-8457-4658
-  year: '2023'
+  year: '2024'
 - type: software
   title: data.tree
   abstract: 'data.tree: General Purpose Hierarchical Data Structure'
@@ -216,7 +216,7 @@ references:
   - family-names: Glur
     given-names: Christoph
     email: christoph.glur@powerpartners.pro
-  year: '2023'
+  year: '2024'
 - type: software
   title: devtools
   abstract: 'devtools: Tools to Make Developing R Packages Easier'
@@ -234,7 +234,7 @@ references:
     given-names: Jennifer
     email: jenny@rstudio.com
     orcid: https://orcid.org/0000-0002-6983-2759
-  year: '2023'
+  year: '2024'
 - type: software
   title: diffviewer
   abstract: 'diffviewer: HTML Widget to Show File Differences'
@@ -250,7 +250,7 @@ references:
   - family-names: Chang
     given-names: Winston
     email: winston@rstudio.com
-  year: '2023'
+  year: '2024'
 - type: software
   title: igraph
   abstract: 'igraph: Network Analysis and Visualization'
@@ -283,7 +283,7 @@ references:
     given-names: Kirill
     email: kirill@cynkra.com
     orcid: https://orcid.org/0000-0002-1416-3412
-  year: '2023'
+  year: '2024'
 - type: software
   title: pak
   abstract: 'pak: Another Approach to Package Installation'
@@ -296,7 +296,7 @@ references:
     email: csardi.gabor@gmail.com
   - family-names: Hester
     given-names: Jim
-  year: '2023'
+  year: '2024'
 - type: software
   title: pkgdown
   abstract: 'pkgdown: Make Static HTML Documentation for a Package'
@@ -314,7 +314,7 @@ references:
   - family-names: Salmon
     given-names: Maëlle
     orcid: https://orcid.org/0000-0002-2815-0399
-  year: '2023'
+  year: '2024'
 - type: software
   title: preferably
   abstract: 'preferably: A ''pkgdown'' Template'
@@ -325,7 +325,7 @@ references:
   - family-names: Abdol
     given-names: Amir Masoud
     email: i@amirmasoudabdol.name
-  year: '2023'
+  year: '2024'
 - type: software
   title: shiny
   abstract: 'shiny: Web Application Framework for R'
@@ -363,7 +363,7 @@ references:
     given-names: Alan
   - family-names: Borges
     given-names: Barbara
-  year: '2023'
+  year: '2024'
 - type: software
   title: testthat
   abstract: 'testthat: Unit Testing for R'
@@ -374,7 +374,7 @@ references:
   - family-names: Wickham
     given-names: Hadley
     email: hadley@posit.co
-  year: '2023'
+  year: '2024'
   version: '>= 3.0.0'
 - type: software
   title: tibble
@@ -390,7 +390,7 @@ references:
   - family-names: Wickham
     given-names: Hadley
     email: hadley@rstudio.com
-  year: '2023'
+  year: '2024'
 - type: software
   title: tidygraph
   abstract: 'tidygraph: A Tidy API for Graph Manipulation'
@@ -402,4 +402,4 @@ references:
     given-names: Thomas Lin
     email: thomasp85@gmail.com
     orcid: https://orcid.org/0000-0002-5147-4711
-  year: '2023'
+  year: '2024'
