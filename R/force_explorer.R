@@ -43,6 +43,12 @@ force_explorer <- function(data) {
         max = 80,
         step = 1
       ),
+      shiny::textInput(
+        inputId = "node_label",
+        label = "node_label:",
+        value = "id",
+        placeholder = "id [default]"
+      ),
       shiny::numericInput(
         inputId = "strength",
         label = "strength:",
@@ -122,6 +128,7 @@ force_explorer <- function(data) {
         width = input$width,
         height = input$height,
         node_size = input$node_size,
+        node_label = input$node_label,
         strength = input$strength,
         distanceMin = input$distanceMin,
         distanceMax = input$distanceMax,
@@ -145,6 +152,7 @@ force_explorer <- function(data) {
           width = input$width,
           height = input$height,
           node_size = input$node_size,
+          node_label = input$node_label,
           strength = input$strength,
           distanceMin = input$distanceMin,
           distanceMax = input$distanceMax,
