@@ -2,6 +2,7 @@
 
 var node_color = eval(options.node_color) || d3.scaleOrdinal(d3.schemeCategory10),
     node_size = options.node_size || 4,
+    node_label = options.node_label || "id",
     link_color = options.link_color || "grey",
     strength = options.strength || -300,
     distanceMin = options.distanceMin || 1,
@@ -101,12 +102,12 @@ function ticked(transform) {
     context.font = font;
     context.fillStyle = d_color;
     context.strokeStyle = "white";
-    context.strokeText(d.id, dx, dy);
+    context.strokeText(d[node_label], dx, dy);
     context.shadowColor = shadow_color;
     context.shadowOffsetX = 2;
     context.shadowOffsetY = 2;
     context.shadowBlur = 6;
-    context.fillText(d.id, dx, dy);
+    context.fillText(d[node_label], dx, dy);
   });
 }
 
