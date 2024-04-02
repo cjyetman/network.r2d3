@@ -7,3 +7,4 @@
 ^pkgdown$
 ^codemeta\.json$
 ^CITATION\.cff$
+^\.DS_Store$
