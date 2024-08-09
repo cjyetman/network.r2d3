@@ -1,54 +1,20 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>/404.html</loc>
-  </url>
-  <url>
-    <loc>/LICENSE-text.html</loc>
-  </url>
-  <url>
-    <loc>/LICENSE.html</loc>
-  </url>
-  <url>
-    <loc>/authors.html</loc>
-  </url>
-  <url>
-    <loc>/index.html</loc>
-  </url>
-  <url>
-    <loc>/reference/as_force_data.html</loc>
-  </url>
-  <url>
-    <loc>/reference/as_sankey_data.html</loc>
-  </url>
-  <url>
-    <loc>/reference/as_tree_data.html</loc>
-  </url>
-  <url>
-    <loc>/reference/force_explorer.html</loc>
-  </url>
-  <url>
-    <loc>/reference/force_network.html</loc>
-  </url>
-  <url>
-    <loc>/reference/index.html</loc>
-  </url>
-  <url>
-    <loc>/reference/sankey_explorer.html</loc>
-  </url>
-  <url>
-    <loc>/reference/sankey_network.html</loc>
-  </url>
-  <url>
-    <loc>/reference/save_as_png.html</loc>
-  </url>
-  <url>
-    <loc>/reference/save_as_svg.html</loc>
-  </url>
-  <url>
-    <loc>/reference/tree_explorer.html</loc>
-  </url>
-  <url>
-    <loc>/reference/tree_network.html</loc>
-  </url>
+<urlset xmlns = 'http://www.sitemaps.org/schemas/sitemap/0.9'>
+<url><loc>/404.html</loc></url>
+<url><loc>/LICENSE-text.html</loc></url>
+<url><loc>/LICENSE.html</loc></url>
+<url><loc>/authors.html</loc></url>
+<url><loc>/index.html</loc></url>
+<url><loc>/reference/as_force_data.html</loc></url>
+<url><loc>/reference/as_sankey_data.html</loc></url>
+<url><loc>/reference/as_tree_data.html</loc></url>
+<url><loc>/reference/force_explorer.html</loc></url>
+<url><loc>/reference/force_network.html</loc></url>
+<url><loc>/reference/index.html</loc></url>
+<url><loc>/reference/sankey_explorer.html</loc></url>
+<url><loc>/reference/sankey_network.html</loc></url>
+<url><loc>/reference/save_as_png.html</loc></url>
+<url><loc>/reference/save_as_svg.html</loc></url>
+<url><loc>/reference/tree_explorer.html</loc></url>
+<url><loc>/reference/tree_network.html</loc></url>
 </urlset>
+
