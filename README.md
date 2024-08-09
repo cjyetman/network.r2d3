@@ -20,5 +20,5 @@ It is intended to closely follow the functionality of [networkD3](https://christ
 You can install the dev version of network.r2d3 with:
 
 ``` r
-devtools::install_github("cjyetman/network.r2d3")
+pak::pak("cjyetman/network.r2d3")
 ```
