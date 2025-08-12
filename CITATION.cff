@@ -1,7 +1,7 @@
-# -----------------------------------------------------------
-# CITATION file created with {cffr} R package, v0.5.0
+# --------------------------------------------
+# CITATION file created with {cffr} R package
 # See also: https://docs.ropensci.org/cffr/
-# -----------------------------------------------------------
+# --------------------------------------------
  
 cff-version: 1.2.0
 message: 'To cite package "network.r2d3" in publications use:'
@@ -39,9 +39,10 @@ references:
   authors:
   - family-names: Ooms
     given-names: Jeroen
-    email: jeroen@berkeley.edu
+    email: jeroenooms@gmail.com
     orcid: https://orcid.org/0000-0002-4035-0289
-  year: '2024'
+  year: '2025'
+  doi: 10.32614/CRAN.package.jsonlite
   version: '>= 0.9.6'
 - type: software
   title: r2d3
@@ -58,12 +59,13 @@ references:
     email: jluraschi@gmail.com
   - family-names: Allaire
     given-names: JJ
-  year: '2024'
+  year: '2025'
+  doi: 10.32614/CRAN.package.r2d3
 - type: software
   title: ape
   abstract: 'ape: Analyses of Phylogenetics and Evolution'
   notes: Suggests
-  url: http://ape-package.ird.fr/
+  url: https://github.com/emmanuelparadis/ape
   repository: https://CRAN.R-project.org/package=ape
   authors:
   - family-names: Paradis
@@ -129,6 +131,8 @@ references:
   - family-names: Louvel
     given-names: Guillaume
     orcid: https://orcid.org/0000-0002-7745-0785
+  - family-names: Marotta
+    given-names: Federico
   - family-names: Marcon
     given-names: Eric
     orcid: https://orcid.org/0000-0002-5249-321X
@@ -149,10 +153,12 @@ references:
   - family-names: Strimmer
     given-names: Korbinian
     orcid: https://orcid.org/0000-0001-7917-2056
-  - family-names: de Vienne
+  - family-names: Vienne
     given-names: Damien
+    name-particle: de
     orcid: https://orcid.org/0000-0001-9532-5251
-  year: '2024'
+  year: '2025'
+  doi: 10.32614/CRAN.package.ape
 - type: software
   title: chromote
   abstract: 'chromote: Headless Chrome Web Browser Interface'
@@ -160,6 +166,10 @@ references:
   url: https://rstudio.github.io/chromote/
   repository: https://CRAN.R-project.org/package=chromote
   authors:
+  - family-names: Aden-Buie
+    given-names: Garrick
+    email: garrick@posit.co
+    orcid: https://orcid.org/0000-0002-7111-0077
   - family-names: Chang
     given-names: Winston
     email: winston@posit.co
@@ -167,7 +177,8 @@ references:
     given-names: Barret
     email: barret@posit.co
     orcid: https://orcid.org/0000-0001-9986-114X
-  year: '2024'
+  year: '2025'
+  doi: 10.32614/CRAN.package.chromote
 - type: software
   title: codemetar
   abstract: 'codemetar: Generate ''CodeMeta'' Metadata for R Packages'
@@ -182,7 +193,8 @@ references:
   - family-names: Salmon
     given-names: Maëlle
     orcid: https://orcid.org/0000-0002-2815-0399
-  year: '2024'
+  year: '2025'
+  doi: 10.32614/CRAN.package.codemetar
 - type: software
   title: covr
   abstract: 'covr: Test Coverage for Packages'
@@ -193,7 +205,8 @@ references:
   - family-names: Hester
     given-names: Jim
     email: james.f.hester@gmail.com
-  year: '2024'
+  year: '2025'
+  doi: 10.32614/CRAN.package.covr
 - type: software
   title: cffr
   abstract: 'cffr: Generate Citation File Format (''cff'') Metadata for R Packages'
@@ -205,7 +218,8 @@ references:
     given-names: Diego
     email: diego.hernangomezherrero@gmail.com
     orcid: https://orcid.org/0000-0001-8457-4658
-  year: '2024'
+  year: '2025'
+  doi: 10.32614/CRAN.package.cffr
 - type: software
   title: data.tree
   abstract: 'data.tree: General Purpose Hierarchical Data Structure'
@@ -216,7 +230,8 @@ references:
   - family-names: Glur
     given-names: Christoph
     email: christoph.glur@powerpartners.pro
-  year: '2024'
+  year: '2025'
+  doi: 10.32614/CRAN.package.data.tree
 - type: software
   title: devtools
   abstract: 'devtools: Tools to Make Developing R Packages Easier'
@@ -234,7 +249,8 @@ references:
     given-names: Jennifer
     email: jenny@rstudio.com
     orcid: https://orcid.org/0000-0002-6983-2759
-  year: '2024'
+  year: '2025'
+  doi: 10.32614/CRAN.package.devtools
 - type: software
   title: diffviewer
   abstract: 'diffviewer: HTML Widget to Show File Differences'
@@ -244,13 +260,14 @@ references:
   authors:
   - family-names: Wickham
     given-names: Hadley
-    email: hadley@rstudio.com
+    email: hadley@posit.co
   - family-names: Kunst
     given-names: Joshua
   - family-names: Chang
     given-names: Winston
-    email: winston@rstudio.com
-  year: '2024'
+    email: winston@posit.co
+  year: '2025'
+  doi: 10.32614/CRAN.package.diffviewer
 - type: software
   title: igraph
   abstract: 'igraph: Network Analysis and Visualization'
@@ -283,7 +300,8 @@ references:
     given-names: Kirill
     email: kirill@cynkra.com
     orcid: https://orcid.org/0000-0002-1416-3412
-  year: '2024'
+  year: '2025'
+  doi: 10.32614/CRAN.package.igraph
 - type: software
   title: pak
   abstract: 'pak: Another Approach to Package Installation'
@@ -296,17 +314,18 @@ references:
     email: csardi.gabor@gmail.com
   - family-names: Hester
     given-names: Jim
-  year: '2024'
+  year: '2025'
+  doi: 10.32614/CRAN.package.pak
 - type: software
   title: pkgdown
   abstract: 'pkgdown: Make Static HTML Documentation for a Package'
   notes: Suggests
-  url: https://pkgdown.r-lib.org
+  url: https://pkgdown.r-lib.org/
   repository: https://CRAN.R-project.org/package=pkgdown
   authors:
   - family-names: Wickham
     given-names: Hadley
-    email: hadley@rstudio.com
+    email: hadley@posit.co
     orcid: https://orcid.org/0000-0003-4757-117X
   - family-names: Hesselberth
     given-names: Jay
@@ -314,18 +333,13 @@ references:
   - family-names: Salmon
     given-names: Maëlle
     orcid: https://orcid.org/0000-0002-2815-0399
-  year: '2024'
-- type: software
-  title: preferably
-  abstract: 'preferably: A ''pkgdown'' Template'
-  notes: Suggests
-  url: https://preferably.amirmasoudabdol.name
-  repository: https://CRAN.R-project.org/package=preferably
-  authors:
-  - family-names: Abdol
-    given-names: Amir Masoud
-    email: i@amirmasoudabdol.name
-  year: '2024'
+  - family-names: Roy
+    given-names: Olivier
+  - family-names: Brüggemann
+    given-names: Salim
+    orcid: https://orcid.org/0000-0002-5329-5987
+  year: '2025'
+  doi: 10.32614/CRAN.package.pkgdown
 - type: software
   title: shiny
   abstract: 'shiny: Web Application Framework for R'
@@ -363,7 +377,8 @@ references:
     given-names: Alan
   - family-names: Borges
     given-names: Barbara
-  year: '2024'
+  year: '2025'
+  doi: 10.32614/CRAN.package.shiny
 - type: software
   title: testthat
   abstract: 'testthat: Unit Testing for R'
@@ -374,7 +389,8 @@ references:
   - family-names: Wickham
     given-names: Hadley
     email: hadley@posit.co
-  year: '2024'
+  year: '2025'
+  doi: 10.32614/CRAN.package.testthat
   version: '>= 3.0.0'
 - type: software
   title: tibble
@@ -390,7 +406,8 @@ references:
   - family-names: Wickham
     given-names: Hadley
     email: hadley@rstudio.com
-  year: '2024'
+  year: '2025'
+  doi: 10.32614/CRAN.package.tibble
 - type: software
   title: tidygraph
   abstract: 'tidygraph: A Tidy API for Graph Manipulation'
@@ -402,4 +419,6 @@ references:
     given-names: Thomas Lin
     email: thomasp85@gmail.com
     orcid: https://orcid.org/0000-0002-5147-4711
-  year: '2024'
+  year: '2025'
+  doi: 10.32614/CRAN.package.tidygraph
+
