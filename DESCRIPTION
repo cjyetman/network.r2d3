@@ -32,7 +32,6 @@ Suggests:
     igraph,
     pak,
     pkgdown,
-    preferably,
     shiny,
     testthat (>= 3.0.0),
     tibble,
