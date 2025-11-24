@@ -1,0 +1,65 @@
+# network.r2d3
+
+network.r2d3 makes interactive network charts in D3 leveraging
+[r2d3](https://rstudio.github.io/r2d3/)
+
+It is intended to closely follow the functionality of
+[networkD3](https://christophergandrud.github.io/networkD3/), but with
+the following benefits:
+
+1.  leverage the benefits of `r2d3` versus including a version of D3
+    internally
+2.  use a better, more consistent API based on current standards in
+    tidyverse
+3.  use transparent converters to enable easy usage of numerous data
+    input types
+4.  use a testing infrastructure to aid in development
+
+## Installation
+
+You can install the dev version of network.r2d3 with:
+
+``` r
+pak::pak("cjyetman/network.r2d3")
+```
+
+# Package index
+
+## All functions
+
+- [`as_force_data()`](as_force_data.md) : Convert one of numerous data
+  types to force_network's 'native' data format
+
+- [`as_sankey_data()`](as_sankey_data.md) : Convert one of numerous data
+  types to sankey_network's 'native' data format
+
+- [`as_tree_data()`](as_tree_data.md) : Convert one of numerous data
+  types to tree_network's 'native' treenetdf form
+
+- [`force_explorer()`](force_explorer.md) :
+
+  Interactive `force_network` options explorer
+
+- [`force_network()`](force_network.md) : Create an interactive force
+  network plot in a htmlwidget
+
+- [`sankey_explorer()`](sankey_explorer.md) :
+
+  Interactive `sankey_network` options explorer
+
+- [`sankey_network()`](sankey_network.md) : Create an interactive sankey
+  network plot in a htmlwidget
+
+- [`save_as_png()`](save_as_png.md) : Save a PNG screenshot of a
+  htmlwidget
+
+- [`save_as_svg()`](save_as_svg.md) : Save a SVG screenshot of a
+  htmlwidget
+
+- [`tree_explorer()`](tree_explorer.md) :
+
+  Interactive `tree_network` options explorer
+
+- [`tree_network()`](tree_network.md) : Create an interactive tree
+  network plot in an htmlwidget
+
