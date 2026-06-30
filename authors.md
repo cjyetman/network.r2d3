@@ -13,14 +13,14 @@
 Source:
 [`DESCRIPTION`](https://github.com/cjyetman/network.r2d3/blob/main/DESCRIPTION)
 
-Yetman C (2025). *network.r2d3: Makes interactive network graphs using
+Yetman C (2026). *network.r2d3: Makes interactive network graphs using
 r2d3*. R package version 0.0.0.9000,
 <https://cjyetman.github.io/network.r2d3>.
 
     @Manual{,
       title = {network.r2d3: Makes interactive network graphs using r2d3},
       author = {CJ Yetman},
-      year = {2025},
+      year = {2026},
       note = {R package version 0.0.0.9000},
       url = {https://cjyetman.github.io/network.r2d3},
     }

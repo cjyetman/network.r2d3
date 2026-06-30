@@ -20,5 +20,6 @@ the following benefits:
 You can install the dev version of network.r2d3 with:
 
 ``` r
+
 pak::pak("cjyetman/network.r2d3")
 ```
